@@ -45,9 +45,7 @@ function HeaderMinimal() {
     </header>
   )
 }
-<div className="font-display text-white text-4xl tracking-wide text-center py-4 bg-black">
-  FONT TEST — This should look tall & different
-</div>
+
 
 function Landing() {
   return (
@@ -69,7 +67,7 @@ function Landing() {
       />
       {/* Content */}
       <div className="relative max-w-3xl mx-auto px-4 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white drop-shadow">
+        <h1 className="font-display text-4xl md:text-6xl tracking-wide leading-tight text-white drop-shadow">
           Pendulum & Acrylic Pour Paintings
         </h1>
 
