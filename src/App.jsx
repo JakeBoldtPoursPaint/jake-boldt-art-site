@@ -132,7 +132,7 @@ function Links() {
   return (
     <section id="about" className="bg-black border-t border-white/10 py-20">
       <div className="max-w-2xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-semibold text-white mb-6">About Jake test</h2>
+        <h2 className="text-3xl font-semibold text-white mb-6">About Jake</h2>
         <p className="text-white/70 mb-10 leading-relaxed">
           I’m a visual artist based in Los Angeles, known for pendulum and acrylic-pour paintings where gravity and motion
           become the brush. My work blends color, physics, and rhythm — transforming raw paint into movement and emotion.  
