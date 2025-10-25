@@ -295,6 +295,9 @@ function Shop() {
 export default function App() {
   return (
     <div className="min-h-screen bg-black text-white font-sans antialiased">
+      <div className="font-display text-white text-4xl tracking-wide text-center py-4 bg-black">
+        FONT TEST — This should look tall & different
+      </div>
       <HeaderMinimal />
       <Landing />
       <Gallery />
