@@ -298,6 +298,7 @@ export default function App() {
       <div className="font-display text-white text-4xl tracking-wide text-center py-4 bg-black">
         FONT TEST — This should look tall & different
       </div>
+      <div className="h-14"></div>
       <HeaderMinimal />
       <Landing />
       <Gallery />
