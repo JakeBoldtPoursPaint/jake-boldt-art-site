@@ -30,12 +30,13 @@ function HeaderMinimal() {
         >
           {open ? <X size={18}/> : <Menu size={18}/>}
         </button>
-        <a
-  href="#"
+        <button
+  type="button"
   className="snipcart-checkout text-white/80 hover:text-white p-2 rounded-lg border border-white/10 ml-2"
+  aria-label="Open cart"
 >
   Cart (<span className="snipcart-items-count">0</span>)
-</a>
+</button>
       </div>
 
       {open && (
