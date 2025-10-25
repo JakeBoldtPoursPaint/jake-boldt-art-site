@@ -225,6 +225,68 @@ function Contact() {
     </section>
   )
 }
+function Shop() {
+  const items = [
+    {
+      id: 'gumroad',
+      title: 'Pendulum Painting Guide (PDF)',
+      blurb:
+        'My step-by-step pendulum course: setup, paint ratios, swing control, troubleshooting, and pro tips.',
+      cta: 'View on Gumroad',
+      href: 'https://jakeboldtpourspaint.gumroad.com/l/ieujo',
+      tag: 'Digital Download',
+    },
+    {
+      id: 'decoart',
+      title: 'DecoArt Paints (Affiliate)',
+      blurb:
+        'The paint line I use for pours and pendulum pieces. Using this link supports my art at no extra cost.',
+      cta: 'Shop DecoArt (Affiliate)',
+      href: 'https://shop.decoart.com?ref=ndc2nti',
+      tag: 'Materials',
+    },
+    // Add more items by copying this block:
+    // {
+    //   id: 'canvas',
+    //   title: 'Stretched Canvases',
+    //   blurb: 'My go-to canvas sizes and brands for high-impact pours.',
+    //   cta: 'Buy Canvases',
+    //   href: 'https://example.com/your-affiliate-link',
+    //   tag: 'Surfaces',
+    // },
+  ]
+
+  return (
+    <section id="shop" className="bg-black border-t border-white/10 py-20">
+      <div className="max-w-5xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-semibold text-white">Shop</h2>
+          <p className="text-white/60 mt-2">
+            Courses and materials I personally use. Some links are affiliate—thanks for the support!
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((it) => (
+            <div key={it.id} className="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-col">
+              <div className="text-xs uppercase tracking-wide text-white/50 mb-2">{it.tag}</div>
+              <h3 className="text-lg font-semibold text-white mb-2">{it.title}</h3>
+              <p className="text-white/70 text-sm mb-5 flex-1">{it.blurb}</p>
+              <a
+                href={it.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition"
+              >
+                {it.cta}
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 
 export default function App() {
@@ -233,6 +295,7 @@ export default function App() {
       <HeaderMinimal />
       <Landing />
       <Gallery />
+      <Shop />
       <Links />
       <Contact />
     </div>
