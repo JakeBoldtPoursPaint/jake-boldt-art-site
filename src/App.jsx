@@ -67,7 +67,7 @@ function Landing() {
       />
       {/* Content */}
       <div className="relative max-w-3xl mx-auto px-4 text-center">
-        <h1 className="font-display text-4xl md:text-6xl tracking-wide leading-tight text-white drop-shadow">
+        <h1 className="font-display text-5xl md:text-7xl tracking-wide leading-tight text-white drop-shadow-[0_0_25px_#ee05fa80] transition-all duration-500 hover:drop-shadow-[0_0_40px_#ee05fa]">
           Pendulum & Acrylic Pour Paintings
         </h1>
 
@@ -293,9 +293,6 @@ function Shop() {
 export default function App() {
   return (
     <div className="min-h-screen bg-black text-white font-sans antialiased pt-14">
-      <div className="font-display text-white text-4xl tracking-wide text-center py-4 bg-black">
-        FONT TEST — This should look tall & different
-      </div>
       <HeaderMinimal />
       <Landing />
       <Gallery />
