@@ -1,1 +1,6 @@
 @tailwind base;@tailwind components;@tailwind utilities;*{box-sizing:border-box}::selection{background:#ee05fa33}
+@layer base {
+  html, body {
+    @apply font-sans;
+  }
+}
