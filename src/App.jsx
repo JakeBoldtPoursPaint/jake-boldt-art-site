@@ -240,7 +240,7 @@ function Shop() {
       id: 'decoart',
       title: 'DecoArt Paints (Affiliate)',
       blurb:
-        'The paint line I use for pours and pendulum pieces. Using this link supports my art at no extra cost.',
+        'The paint line I use for acrylic pours. Using this link supports my art at no extra cost.',
       cta: 'Shop DecoArt (Affiliate)',
       href: 'https://shop.decoart.com?ref=ndc2nti',
       tag: 'Materials',
