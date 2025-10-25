@@ -17,3 +17,25 @@
     @apply font-sans;
   }
 }
+@keyframes neonPulse {
+  0% {
+    filter: drop-shadow(0 0 25px #ee05fa80);
+  }
+  25% {
+    filter: drop-shadow(0 0 35px #ee05fa);
+  }
+  50% {
+    filter: drop-shadow(0 0 40px #9c1aff);
+  }
+  75% {
+    filter: drop-shadow(0 0 35px #ee05fa);
+  }
+  100% {
+    filter: drop-shadow(0 0 25px #ee05fa80);
+  }
+}
+
+.animate-neon {
+  animation: neonPulse 4s ease-in-out infinite;
+}
+

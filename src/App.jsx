@@ -67,9 +67,10 @@ function Landing() {
       />
       {/* Content */}
       <div className="relative max-w-3xl mx-auto px-4 text-center">
-        <h1 className="font-display text-5xl md:text-7xl tracking-wide leading-tight text-white drop-shadow-[0_0_25px_#ee05fa80] transition-all duration-500 hover:drop-shadow-[0_0_40px_#ee05fa]">
-          Pendulum & Acrylic Pour Paintings
-        </h1>
+        <h1 className="font-display text-5xl md:text-7xl tracking-wide leading-tight text-white animate-neon">
+  Pendulum & Acrylic Pour Paintings
+</h1>
+
 
         <div className="mt-10 grid gap-3 sm:grid-cols-3">
           <a
