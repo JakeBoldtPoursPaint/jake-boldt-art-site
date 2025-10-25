@@ -44,4 +44,16 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, li {
     0 0 12px #ee05fa99,
     0 0 22px #9c1aff88;
 }
+/* === BRIGHTER GLOW ON HOVER === */
+a:hover,
+button:hover,
+h1:hover,
+h2:hover,
+h3:hover {
+  text-shadow:
+    0 0 20px #ee05fa,
+    0 0 35px #9c1aff;
+  transition: text-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: scale(1.02);
+}
 
