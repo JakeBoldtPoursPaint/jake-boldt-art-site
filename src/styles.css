@@ -38,10 +38,10 @@
 .animate-neon {
   animation: neonPulse 4s ease-in-out infinite;
 }
-/* === GLOBAL NEON TEXT GLOW === */
+/* === GLOBAL NEON TEXT GLOW (amped up) === */
 body, h1, h2, h3, h4, h5, h6, p, a, span, li {
   text-shadow:
-    0 0 8px #ee05fa66,
-    0 0 14px #9c1aff55;
+    0 0 12px #ee05fa99,
+    0 0 22px #9c1aff88;
 }
 
