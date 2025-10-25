@@ -45,6 +45,9 @@ function HeaderMinimal() {
     </header>
   )
 }
+<div className="font-display text-white text-4xl tracking-wide text-center py-4 bg-black">
+  FONT TEST — This should look tall & different
+</div>
 
 function Landing() {
   return (
