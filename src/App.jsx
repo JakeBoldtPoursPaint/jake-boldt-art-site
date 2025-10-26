@@ -82,7 +82,7 @@ function Landing() {
   className="snipcart-add-item rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition mt-6 inline-block"
   data-item-id="test-print-1"
   data-item-name="Test Print"
-  data-item-url="/test-print"
+  data-item-url="/products/test-print.json"
   data-item-price="25.00"
   data-item-description="Test product to verify add-to-cart works."
 >

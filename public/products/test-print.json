@@ -1,0 +1,8 @@
+{
+  "id": "test-print-1",
+  "name": "Test Print",
+  "url": "https://jakeboldt.com/products/test-print.json",
+  "price": 25.00,
+  "description": "Test product to verify add-to-cart works.",
+  "image": "/pour1.jpg"
+}
