@@ -14,14 +14,18 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- ✅ Snipcart v3.7 Setup (correct placement) -->
+    <!-- ✅ Snipcart v3.7 Correct Setup -->
+    <div id="snipcart" hidden></div>
+
     <script>
       window.SnipcartSettings = {
         publicApiKey: "MTZlYWNlMTAtOWE1Mi00NmUyLTlhOWItN2MxNjBlYzY5ZGQ0NjM4OTcwMjY5NzQyMjU3MjIz",
         loadStrategy: "on-user-interaction",
-        modalStyle: "side"
+        modalStyle: "side",
+        currency: "USD"
       };
     </script>
+
     <script async src="https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.js"></script>
     <link
       rel="stylesheet"
