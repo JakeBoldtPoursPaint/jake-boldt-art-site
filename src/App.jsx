@@ -77,6 +77,17 @@ function Landing() {
         <h1 className="font-display text-5xl md:text-7xl tracking-wide leading-tight text-white animate-neon">
   Pendulum & Acrylic Pour Paintings
 </h1>
+<a
+  href="#"
+  className="snipcart-add-item rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition mt-6 inline-block"
+  data-item-id="test-print-1"
+  data-item-name="Test Print"
+  data-item-url="/"
+  data-item-price="25.00"
+  data-item-description="Test product to verify add-to-cart works."
+>
+  Add “Test Print” — $25
+</a>
 
 
         <div className="mt-10 grid gap-3 sm:grid-cols-3">
