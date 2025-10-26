@@ -6,3 +6,11 @@
   "description": "Test product to verify add-to-cart works.",
   "image": "/pour1.jpg"
 }
+{
+  "id": "test-live-1",
+  "name": "Live Mode Test Product",
+  "url": "https://jakeboldt.com/products/test-live.json",
+  "price": 1.00,
+  "description": "This is a live mode test purchase for $1.00 to confirm Stripe payments work.",
+  "image": "/pour1.jpg"
+}
