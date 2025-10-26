@@ -88,7 +88,18 @@ function Landing() {
 >
   Add “Test Print” — $25
 </a>
-
+<a
+  href="#"
+  className="snipcart-add-item rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition mt-6 inline-block"
+  data-item-id="pendulum-print-1"
+  data-item-name="Pendulum Painting Print"
+  data-item-url="/products/pendulum-print.json"
+  data-item-price="120.00"
+  data-item-description="High-quality 24x36 print of my signature pendulum artwork — hand-signed."
+  data-item-image="/pour1.jpg"
+>
+  Add “Pendulum Print” — $120
+</a>
 
         <div className="mt-10 grid gap-3 sm:grid-cols-3">
           <a
