@@ -105,12 +105,13 @@ function Landing() {
   className="snipcart-add-item rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition mt-6 inline-block"
   data-item-id="test-live-1"
   data-item-name="Live Mode Test Product"
-  data-item-url="https://jakeboldt.com/products/test-live.json"
+  data-item-url="https://jakeboldt.com/products/test-live.json?v=2"
   data-item-price="1.00"
   data-item-description="This is a live mode test purchase for $1.00 to confirm Stripe payments work."
 >
   Add “$1 Live Test” — $1
 </a>
+
 
         <div className="mt-10 grid gap-3 sm:grid-cols-3">
           <a
