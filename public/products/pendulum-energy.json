@@ -1,8 +1,9 @@
 {
   "id": "pendulum-energy-1",
-  "name": "Pendulum Energy",
+  "name": "Pendulum Energy — Original",
   "url": "https://jakeboldt.com/products/pendulum-energy.json",
-  "price": 1180.00,
-  "description": "Original pendulum pour — acrylic on canvas. This listing is for a 1-of-1 artwork, signed by Jake Boldt.",
-  "image": "/videos/pendulum-energy.mp4"
+  "price": 180.00,
+  "description": "Original pendulum pour — acrylic on canvas. Signed.",
+  "image": "/videos/pendulum-energy.mp4",
+  "shippable": true
 }
