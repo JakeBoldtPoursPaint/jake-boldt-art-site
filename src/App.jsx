@@ -297,6 +297,84 @@ function Shop() {
   )
 }
 
+// === VIDEO PRODUCTS (edit names/prices/paths if yours differ) ===
+const VIDEO_PRODUCTS = [
+  {
+    id: "pendulum-energy-1",
+    name: "Pendulum Energy — Original",
+    price: 180.00,
+    jsonUrl: "/products/pendulum-energy.json",
+    videoSrc: "/videos/pendulum-energy.mp4"
+  },
+  {
+    id: "cosmic-flow-1",
+    name: "Cosmic Flow — Original",
+    price: 220.00,
+    jsonUrl: "/products/cosmic-flow.json",
+    videoSrc: "/videos/cosmic-flow.mp4"
+  },
+  {
+    id: "neon-drip-1",
+    name: "Neon Drip — Original",
+    price: 250.00,
+    jsonUrl: "/products/neon-drip.json",
+    videoSrc: "/videos/neon-drip.mp4"
+  },
+]
+
+// --- Shop with video cards ---
+function Shop() {
+  return (
+    <section id="shop" className="py-16 border-t border-white/10 bg-black">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="font-display text-3xl md:text-4xl mb-8 animate-neon">
+          Available Art
+        </h2>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {VIDEO_PRODUCTS.map(p => (
+            <article
+              key={p.id}
+              className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
+            >
+              <div className="relative aspect-[4/5] bg-black">
+                <video
+                  src={p.videoSrc}
+                  playsInline
+                  autoPlay
+                  loop
+                  muted
+                  className="w-full h-full object-cover"
+                  preload="metadata"
+                />
+                {/* optional subtle overlay for readability */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              </div>
+
+              <div className="p-4">
+                <h3 className="text-lg font-semibold">{p.name}</h3>
+                <p className="text-white/70 mt-1">${p.price.toFixed(2)}</p>
+
+                <a
+                  href="#"
+                  className="snipcart-add-item mt-4 inline-block rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition"
+                  data-item-id={p.id}
+                  data-item-name={p.name}
+                  data-item-url={p.jsonUrl}
+                  data-item-price={p.price.toFixed(2)}
+                  data-item-image={p.videoSrc}  /* OK if you don’t have a jpg */
+                  data-item-description="Original artwork by Jake Boldt"
+                >
+                  Add to Cart — ${p.price.toFixed(2)}
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 export default function App() {
   return (
