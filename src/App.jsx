@@ -234,7 +234,7 @@ function Contact() {
     </section>
   )
 }
-function Shop() {
+function GuidesandAffliates() {
   const items = [
     {
       id: 'gumroad',
@@ -298,9 +298,10 @@ function Shop() {
 }
 
 // === VIDEO PRODUCTS (edit names/prices/paths if yours differ) ===
-const VIDEO_PRODUCTS = [
+export const VIDEO_PRODUCTS = [
   {
     id: "pendulum-energy-1",
+    slug: "pendulum-energy",
     name: "Pendulum Energy — Original",
     price: 180.00,
     jsonUrl: "/products/pendulum-energy.json",
@@ -308,6 +309,7 @@ const VIDEO_PRODUCTS = [
   },
   {
     id: "cosmic-flow-1",
+    slug: "cosmic-flow",
     name: "Cosmic Flow — Original",
     price: 220.00,
     jsonUrl: "/products/cosmic-flow.json",
@@ -315,11 +317,12 @@ const VIDEO_PRODUCTS = [
   },
   {
     id: "neon-drip-1",
+    slug: "neon-drip",
     name: "Neon Drip — Original",
     price: 250.00,
     jsonUrl: "/products/neon-drip.json",
     videoSrc: "/videos/neon-drip.mp4"
-  },
+  }
 ]
 
 // --- Shop with video cards ---
@@ -337,7 +340,7 @@ function Shop() {
               key={p.id}
               className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
             >
-              <div className="relative aspect-[4/5] bg-black">
+              <div className="relative aspect-[9/16] bg-black overflow-hidden">
                 <video
                   src={p.videoSrc}
                   playsInline
@@ -352,7 +355,14 @@ function Shop() {
               </div>
 
               <div className="p-4">
-                <h3 className="text-lg font-semibold">{p.name}</h3>
+                <h3 className="text-lg font-semibold">
+  <a
+    href={`/p/${p.slug}`}
+    className="hover:underline focus:underline"
+  >
+    {p.name}
+  </a>
+</h3>
                 <p className="text-white/70 mt-1">${p.price.toFixed(2)}</p>
 
                 <a
