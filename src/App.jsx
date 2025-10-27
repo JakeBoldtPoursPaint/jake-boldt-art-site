@@ -357,7 +357,7 @@ function Shop() {
               <div className="p-4">
                 <h3 className="text-lg font-semibold">
   <a
-    href={`/p/${p.slug}`}
+    href={`#/p/${p.slug}`}
     className="hover:underline focus:underline"
   >
     {p.name}
