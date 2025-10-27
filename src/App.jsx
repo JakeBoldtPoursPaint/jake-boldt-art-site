@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Menu, X, ArrowRight } from 'lucide-react'
+import { Link } from "react-router-dom"; // ← added
 
 const ACCENT = '#ee05fa'
 
@@ -31,12 +32,12 @@ function HeaderMinimal() {
           {open ? <X size={18}/> : <Menu size={18}/>}
         </button>
         <button
-  type="button"
-  className="snipcart-checkout text-white/80 hover:text-white p-2 rounded-lg border border-white/10 ml-2"
-  aria-label="Open cart"
->
-  Cart (<span className="snipcart-items-count">0</span>)
-</button>
+          type="button"
+          className="snipcart-checkout text-white/80 hover:text-white p-2 rounded-lg border border-white/10 ml-2"
+          aria-label="Open cart"
+        >
+          Cart (<span className="snipcart-items-count">0</span>)
+        </button>
       </div>
 
       {open && (
@@ -52,7 +53,6 @@ function HeaderMinimal() {
     </header>
   )
 }
-
 
 function Landing() {
   return (
@@ -75,9 +75,8 @@ function Landing() {
       {/* Content */}
       <div className="relative max-w-3xl mx-auto px-4 text-center">
         <h1 className="font-display text-5xl md:text-7xl tracking-wide leading-tight text-white animate-neon">
-  Pendulum & Acrylic Pour Paintings
-</h1>
-
+          Pendulum & Acrylic Pour Paintings
+        </h1>
 
         <div className="mt-10 grid gap-3 sm:grid-cols-3">
           <a
@@ -183,7 +182,6 @@ function Links() {
   )
 }
 
-
 function Contact() {
   return (
     <section id="contact" className="bg-black border-t border-white/10 py-20">
@@ -234,6 +232,7 @@ function Contact() {
     </section>
   )
 }
+
 function GuidesandAffliates() {
   const items = [
     {
@@ -254,15 +253,6 @@ function GuidesandAffliates() {
       href: 'https://shop.decoart.com?ref=ndc2nti',
       tag: 'Materials',
     },
-    // Add more items by copying this block:
-    // {
-    //   id: 'canvas',
-    //   title: 'Stretched Canvases',
-    //   blurb: 'My go-to canvas sizes and brands for high-impact pours.',
-    //   cta: 'Buy Canvases',
-    //   href: 'https://example.com/your-affiliate-link',
-    //   tag: 'Surfaces',
-    // },
   ]
 
   return (
@@ -356,13 +346,13 @@ function Shop() {
 
               <div className="p-4">
                 <h3 className="text-lg font-semibold">
-  <a
-    href={`#/p/${p.slug}`}
-    className="hover:underline focus:underline"
-  >
-    {p.name}
-  </a>
-</h3>
+                  <Link
+                    to={`/p/${p.slug}`}
+                    className="hover:underline focus:underline"
+                  >
+                    {p.name}
+                  </Link>
+                </h3>
                 <p className="text-white/70 mt-1">${p.price.toFixed(2)}</p>
 
                 <a
@@ -372,7 +362,7 @@ function Shop() {
                   data-item-name={p.name}
                   data-item-url={p.jsonUrl}
                   data-item-price={p.price.toFixed(2)}
-                  data-item-image={p.videoSrc}  /* OK if you don’t have a jpg */
+                  data-item-image={p.videoSrc}
                   data-item-description="Original artwork by Jake Boldt"
                 >
                   Add to Cart — ${p.price.toFixed(2)}
