@@ -113,4 +113,72 @@ button:hover,
     text-shadow: none !important;
   }
 }
+/* === Custom Neon Button Effects (Solid Color Pulse) === */
 
+.neon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  background-color: #ff32ff; /* start as pink */
+  border-radius: 1rem;
+  padding: 1rem 2.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px #ff32ff55, 0 0 35px #9b4dff33;
+  text-shadow:
+    0 0 0.3rem #ff32ff,
+    0 0 0.8rem #9b4dff;
+  animation: colorPulse 3.5s ease-in-out infinite;
+}
+
+/* Hover glow + scale */
+.neon-btn:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 25px #ff32ff,
+    0 0 50px #9b4dff,
+    0 0 80px #9b4dff;
+}
+
+/* Pulsating aura on hover */
+.neon-btn:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, #ff32ff33 0%, transparent 70%);
+  opacity: 0.8;
+  animation: pulse 1.8s infinite;
+}
+
+/* === Keyframes === */
+
+/* alternate between solid pink and purple */
+@keyframes colorPulse {
+  0%, 100% {
+    background-color: #ff32ff;
+  }
+  50% {
+    background-color: #9b4dff;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}

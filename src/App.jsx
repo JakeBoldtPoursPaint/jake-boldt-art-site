@@ -57,7 +57,10 @@ function HeaderMinimal() {
 
 function Landing() {
   return (
-    <section id="home" className="min-h-[100dvh] relative flex items-center justify-center bg-black overflow-hidden">
+    <section
+      id="home"
+      className="min-h-[100dvh] relative flex items-center justify-center bg-black overflow-hidden"
+    >
       {/* Background video */}
       <video
         className="absolute inset-0 w-full h-full object-cover opacity-50"
@@ -66,53 +69,60 @@ function Landing() {
         loop
         muted
         playsInline
-        // poster optional: add /bg-poster.jpg in /public for faster first paint
       />
+
       {/* Soft neon glow overlay */}
       <div
         className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1400px] h-[1400px] blur-3xl opacity-30"
-        style={{ background: `radial-gradient(50% 50% at 50% 50%, ${ACCENT}66 0%, transparent 60%)` }}
+        style={{
+          background: `radial-gradient(50% 50% at 50% 50%, ${ACCENT}66 0%, transparent 60%)`,
+        }}
       />
+
       {/* Content */}
       <div className="relative max-w-3xl mx-auto px-4 text-center">
         <h1 className="font-display text-5xl md:text-7xl tracking-wide leading-tight text-white animate-neon">
           Pendulum & Acrylic Pour Paintings
         </h1>
 
-        <div className="mt-10 grid gap-3 sm:grid-cols-3">
-          <a
-            href="#shop"
-            className="rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 text-white px-5 py-4 inline-flex items-center justify-center gap-2"
-          >
-            Artwork <ArrowRight size={16}/>
-          </a>
-          <a
-            href="#links"
-            className="rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 text-white px-5 py-4 inline-flex items-center justify-center gap-2"
-          >
-            Affiliate Links <ArrowRight size={16}/>
-          </a>
-          <a
-            href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-2xl text-black px-5 py-4 inline-flex items-center justify-center gap-2"
-            style={{ backgroundColor: ACCENT }}
-          >
-            Pendulum Painting Guide <ArrowRight size={16}/>
-          </a>
-        </div>
+        {/* Neon Buttons */}
+        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+  <a
+    href="#shop"
+    className="neon-btn inline-flex items-center justify-center text-lg md:text-xl py-5 gap-3"
+  >
+    Artwork <ArrowRight size={22} />
+  </a>
+
+  <a
+    href="#links"
+    className="neon-btn inline-flex items-center justify-center text-lg md:text-xl py-5 gap-3"
+  >
+    Affiliate Links <ArrowRight size={25} />
+  </a>
+
+  <a
+    href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
+    target="_blank"
+    rel="noreferrer"
+    className="neon-btn inline-flex items-center justify-center text-lg md:text-xl py-5 gap-3"
+  >
+    Pendulum Painting Guide <ArrowRight size={45} />
+  </a>
+</div>
+
       </div>
     </section>
   )
 }
 
 
+
 function Links() {
   return (
     <section id="about" className="bg-black border-t border-white/10 py-20">
       <div className="max-w-2xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-semibold text-white mb-6">About Jake</h2>
+        <h2 className="text-3xl font-semibold text-white mb-6">About Me</h2>
         <p className="text-white/70 mb-10 leading-relaxed">
           I’m a visual artist based in Los Angeles, known for pendulum and acrylic-pour paintings where gravity and motion
           become the brush. My work blends color, physics, and rhythm — transforming raw paint into movement and emotion.  
