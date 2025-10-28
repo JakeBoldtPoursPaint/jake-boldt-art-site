@@ -12,7 +12,7 @@ body {
   --neon2: #9b4dff; /* deep purple */
 }
 
-/* === Softer, readable neon pulse === */
+/* === Neon pulse (readable white text with glow) === */
 @keyframes neonPulse {
   0%, 100% {
     text-shadow:
@@ -42,19 +42,19 @@ body::before {
   will-change: filter;
 }
 
-/* === Neon pulse applied globally (but keep text white) === */
+/* === Neon pulse on all text === */
 .neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em) {
   animation: neonPulse 4.2s cubic-bezier(0.66, 0, 0.34, 1) infinite;
-  color: #fff !important; /* keep letters bright white */
+  color: #fff !important;
 }
 
-/* Keep links bright */
+/* Keep links bright and crisp */
 .neon-all a {
   color: #fff;
   text-decoration-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Extra-strong glow for key text like titles */
+/* Stronger glow for hero titles or important text */
 .neon-strong {
   animation: neonPulse 3.8s cubic-bezier(0.66, 0, 0.34, 1) infinite !important;
   text-shadow:
@@ -66,23 +66,48 @@ body::before {
   color: #fff !important;
 }
 
-/* === Accessibility: no motion for reduced-motion users === */
-@media (prefers-reduced-motion: reduce) {
-  .neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em),
-  .neon-strong {
-    animation: none !important;
-    text-shadow: none !important;
-  }
+/* === BUTTON & LINK INTERACTIONS === */
+button,
+a,
+.snipcart-checkout {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    text-shadow 0.25s ease;
+  transform-origin: center;
 }
 
-/* === Don't pulse form fields (readability) === */
+/* Subtle enlarge + glow intensifies on hover */
+button:hover,
+a:hover,
+.snipcart-checkout:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0.4rem var(--neon1),
+    0 0 1.2rem var(--neon2);
+  text-shadow:
+    0 0 0.3rem var(--neon1),
+    0 0 0.8rem var(--neon2),
+    0 0 1.5rem var(--neon2);
+}
+
+/* === Forms & Snipcart readability === */
 .neon-all :where(input, textarea, select, option) {
   animation: none !important;
   text-shadow: none !important;
 }
 
-/* Exclude Snipcart UI from pulsing */
 #snipcart, #snipcart * {
   animation: none !important;
   text-shadow: none !important;
+}
+
+/* === Accessibility: no animation if reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
