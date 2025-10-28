@@ -5,51 +5,85 @@
 body {
   @apply bg-black text-white;
 }
-/* === Neon pulse (global) === */
-:root{
-  --neon1:#ff32ff;        /* hot pink */
-  --neon2:#9b4dff;        /* purple */
+
+/* === Neon color palette === */
+:root {
+  --neon1: #ff32ff; /* bright pink */
+  --neon2: #9b4dff; /* deep purple */
 }
 
+/* === Softer, readable neon pulse === */
 @keyframes neonPulse {
   0%, 100% {
     text-shadow:
-      0 0 0.1rem var(--neon1),
+      0 0 0.15rem var(--neon1),
       0 0 0.3rem var(--neon1),
-      0 0 0.6rem var(--neon2),
-      0 0 1.2rem var(--neon2),
-      0 0 2rem var(--neon2);
-    color: var(--neon1);
+      0 0 0.8rem var(--neon2),
+      0 0 1.4rem var(--neon2);
   }
   50% {
     text-shadow:
-      0 0 0.2rem var(--neon2),
-      0 0 0.5rem var(--neon2),
-      0 0 1rem var(--neon1),
-      0 0 2rem var(--neon1),
-      0 0 3rem var(--neon1);
-    color: var(--neon2);
+      0 0 0.25rem var(--neon1),
+      0 0 0.5rem var(--neon1),
+      0 0 1.2rem var(--neon2),
+      0 0 2rem var(--neon2);
   }
 }
+
 /* === Ambient neon glow background === */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 50% 40%, #ee05fa15 0%, #9b4dff05 80%);
+  background: radial-gradient(circle at 50% 40%, #ee05fa33 0%, #9b4dff15 80%);
   pointer-events: none;
-  filter: blur(80px);
+  filter: blur(100px);
   z-index: -1;
+  will-change: filter;
 }
 
-
-/* Apply the pulse to common text elements when a parent has .neon-all */
-.neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em){
-  animation: neonPulse 4.2s ease-in-out infinite;
+/* === Neon pulse applied globally (but keep text white) === */
+.neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em) {
+  animation: neonPulse 4.2s cubic-bezier(0.66, 0, 0.34, 1) infinite;
+  color: #fff !important; /* keep letters bright white */
 }
 
-/* Keep links nice and bright while pulsing */
-.neon-all a { color: #fff; text-decoration-color: rgba(255,255,255,.5); }
+/* Keep links bright */
+.neon-all a {
+  color: #fff;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+}
 
-/* You already used this class on some headings—keep it working too */
-.animate-neon{ animation: neonPulse 2.2s ease-in-out infinite; }
+/* Extra-strong glow for key text like titles */
+.neon-strong {
+  animation: neonPulse 3.8s cubic-bezier(0.66, 0, 0.34, 1) infinite !important;
+  text-shadow:
+    0 0 0.25rem var(--neon1),
+    0 0 0.6rem var(--neon1),
+    0 0 1.4rem var(--neon2),
+    0 0 2.4rem var(--neon2),
+    0 0 3.2rem var(--neon2) !important;
+  color: #fff !important;
+}
+
+/* === Accessibility: no motion for reduced-motion users === */
+@media (prefers-reduced-motion: reduce) {
+  .neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em),
+  .neon-strong {
+    animation: none !important;
+    text-shadow: none !important;
+  }
+}
+
+/* === Don't pulse form fields (readability) === */
+.neon-all :where(input, textarea, select, option) {
+  animation: none !important;
+  text-shadow: none !important;
+}
+
+/* Exclude Snipcart UI from pulsing */
+#snipcart, #snipcart * {
+  animation: none !important;
+  text-shadow: none !important;
+}
+
