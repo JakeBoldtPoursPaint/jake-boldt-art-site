@@ -19,15 +19,27 @@ body {
       0 0 0.6rem var(--neon2),
       0 0 1.2rem var(--neon2),
       0 0 2rem var(--neon2);
+    color: var(--neon1);
   }
   50% {
     text-shadow:
-      0 0 0.2rem var(--neon1),
-      0 0 0.5rem var(--neon1),
-      0 0 1rem var(--neon2),
-      0 0 2rem var(--neon2),
-      0 0 3rem var(--neon2);
+      0 0 0.2rem var(--neon2),
+      0 0 0.5rem var(--neon2),
+      0 0 1rem var(--neon1),
+      0 0 2rem var(--neon1),
+      0 0 3rem var(--neon1);
+    color: var(--neon2);
   }
+}
+/* === Ambient neon glow background === */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, #ee05fa15 0%, #9b4dff05 80%);
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: -1;
 }
 
 
