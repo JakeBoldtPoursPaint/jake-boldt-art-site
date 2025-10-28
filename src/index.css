@@ -72,23 +72,21 @@ a,
 .snipcart-checkout {
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease,
-    text-shadow 0.25s ease;
+    text-shadow 0.25s ease,
+    filter 0.25s ease;
   transform-origin: center;
 }
 
-/* Subtle enlarge + glow intensifies on hover */
+/* Subtle enlarge + glow intensifies on hover — no box-shadow */
 button:hover,
 a:hover,
 .snipcart-checkout:hover {
   transform: scale(1.08);
-  box-shadow:
-    0 0 0.4rem var(--neon1),
-    0 0 1.2rem var(--neon2);
+  filter: brightness(1.2);
   text-shadow:
-    0 0 0.3rem var(--neon1),
+    0 0 0.4rem var(--neon1),
     0 0 0.8rem var(--neon2),
-    0 0 1.5rem var(--neon2);
+    0 0 1.6rem var(--neon2);
 }
 
 /* === Forms & Snipcart readability === */
