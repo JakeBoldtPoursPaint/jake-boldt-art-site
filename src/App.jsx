@@ -265,6 +265,7 @@ export const VIDEO_PRODUCTS = [
     id: "pendulum-energy-1",
     slug: "pendulum-energy",
     name: "Pendulum Energy — Original",
+    sold: true,
     price: 180.00,
     jsonUrl: "/products/pendulum-energy.json",
     videoSrc: "/videos/pendulum-energy.mp4"
@@ -273,7 +274,7 @@ export const VIDEO_PRODUCTS = [
     id: "cosmic-flow-1",
     slug: "cosmic-flow",
     name: "Cosmic Flow — Original",
-    price: 220.00,
+    price: 820.00,
     jsonUrl: "/products/cosmic-flow.json",
     videoSrc: "/videos/cosmic-flow.mp4"
   },
@@ -281,7 +282,7 @@ export const VIDEO_PRODUCTS = [
     id: "neon-drip-1",
     slug: "neon-drip",
     name: "Neon Drip — Original",
-    price: 250.00,
+    price: 1450.00,
     jsonUrl: "/products/neon-drip.json",
     videoSrc: "/videos/neon-drip.mp4"
   }
@@ -312,6 +313,11 @@ function Shop() {
                   className="w-full h-full object-cover"
                   preload="metadata"
                 />
+                {p.sold && (
+  <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+    <span className="text-4xl font-extrabold text-red-500 drop-shadow-lg">SOLD</span>
+  </div>
+)}
                 {/* optional subtle overlay for readability */}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               </div>
@@ -327,18 +333,23 @@ function Shop() {
                 </h3>
                 <p className="text-white/70 mt-1">${p.price.toFixed(2)}</p>
 
-                <a
-                  href="#"
-                  className="snipcart-add-item mt-4 inline-block rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition"
-                  data-item-id={p.id}
-                  data-item-name={p.name}
-                  data-item-url={p.jsonUrl}
-                  data-item-price={p.price.toFixed(2)}
-                  data-item-image={p.videoSrc}
-                  data-item-description="Original artwork by Jake Boldt"
-                >
-                  Add to Cart — ${p.price.toFixed(2)}
-                </a>
+                {p.sold ? (
+  <p className="mt-4 text-red-500 font-bold">SOLD</p>
+) : (
+  <a
+    href="#"
+    className="snipcart-add-item mt-4 inline-block rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition"
+    data-item-id={p.id}
+    data-item-name={p.name}
+    data-item-url={p.jsonUrl}
+    data-item-price={p.price.toFixed(2)}
+    data-item-image={p.videoSrc}
+    data-item-description="Original artwork by Jake Boldt"
+  >
+    Add to Cart — ${p.price.toFixed(2)}
+  </a>
+)}
+
               </div>
             </article>
           ))}
