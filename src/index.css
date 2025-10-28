@@ -33,7 +33,7 @@ body {
 
 /* Apply the pulse to common text elements when a parent has .neon-all */
 .neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em){
-  animation: neonPulse 2.2s ease-in-out infinite;
+  animation: neonPulse 4.2s ease-in-out infinite;
 }
 
 /* Keep links nice and bright while pulsing */
