@@ -81,7 +81,7 @@ function Landing() {
 
         <div className="mt-10 grid gap-3 sm:grid-cols-3">
           <a
-            href="#gallery"
+            href="#shop"
             className="rounded-2xl border border-white/15 bg-white/5 hover:bg-white/10 text-white px-5 py-4 inline-flex items-center justify-center gap-2"
           >
             Artwork <ArrowRight size={16}/>
@@ -293,7 +293,7 @@ function Shop() {
     <section id="shop" className="py-16 border-t border-white/10 bg-black">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="font-display text-3xl md:text-4xl mb-8 animate-neon">
-          Available Art
+          Artwork
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
