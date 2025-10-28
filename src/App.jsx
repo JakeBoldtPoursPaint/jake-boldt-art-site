@@ -380,7 +380,7 @@ function Shop() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-white font-sans antialiased pt-14">
+    <div className="min-h-screen bg-black text-white font-sans antialiased pt-14 neon-all">
       <HeaderMinimal />
       <Landing />
       <Gallery />

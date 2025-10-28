@@ -5,3 +5,36 @@
 body {
   @apply bg-black text-white;
 }
+/* === Neon pulse (global) === */
+:root{
+  --neon1:#ee05fa;        /* hot pink */
+  --neon2:#9b4dff;        /* purple */
+}
+
+@keyframes neonPulse{
+  0%,100%{
+    text-shadow:
+      0 0 0.04rem var(--neon1),
+      0 0 0.12rem var(--neon1),
+      0 0 0.28rem var(--neon2),
+      0 0 0.52rem var(--neon2);
+  }
+  50%{
+    text-shadow:
+      0 0 0.08rem var(--neon1),
+      0 0 0.22rem var(--neon1),
+      0 0 0.72rem var(--neon2),
+      0 0 1.0rem var(--neon2);
+  }
+}
+
+/* Apply the pulse to common text elements when a parent has .neon-all */
+.neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em){
+  animation: neonPulse 2.2s ease-in-out infinite;
+}
+
+/* Keep links nice and bright while pulsing */
+.neon-all a { color: #fff; text-decoration-color: rgba(255,255,255,.5); }
+
+/* You already used this class on some headings—keep it working too */
+.animate-neon{ animation: neonPulse 2.2s ease-in-out infinite; }
