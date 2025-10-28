@@ -42,7 +42,7 @@ body::before {
   will-change: filter;
 }
 
-/* === Neon pulse on all text === */
+/* === Neon pulse on all text (keep letters white) === */
 .neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em) {
   animation: neonPulse 4.2s cubic-bezier(0.66, 0, 0.34, 1) infinite;
   color: #fff !important;
@@ -66,27 +66,30 @@ body::before {
   color: #fff !important;
 }
 
-/* === BUTTON & LINK INTERACTIONS === */
-button,
+/* === Unified hover interactions (no box) === */
 a,
+button,
 .snipcart-checkout {
   transition:
     transform 0.25s ease,
     text-shadow 0.25s ease,
-    filter 0.25s ease;
+    filter 0.25s ease,
+    opacity 0.25s ease;
   transform-origin: center;
 }
 
-/* Subtle enlarge + glow intensifies on hover — no box-shadow */
-button:hover,
 a:hover,
+button:hover,
 .snipcart-checkout:hover {
   transform: scale(1.08);
-  filter: brightness(1.2);
+  opacity: 0.95;
+  filter: brightness(1.15);
   text-shadow:
     0 0 0.4rem var(--neon1),
     0 0 0.8rem var(--neon2),
     0 0 1.6rem var(--neon2);
+  box-shadow: none;
+  outline: none;
 }
 
 /* === Forms & Snipcart readability === */
@@ -102,10 +105,12 @@ a:hover,
 
 /* === Accessibility: no animation if reduced motion === */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  .neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em),
+  .neon-strong,
+  a, button, .snipcart-checkout {
     animation: none !important;
     transition: none !important;
+    text-shadow: none !important;
   }
 }
+
