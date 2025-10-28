@@ -24,21 +24,23 @@ function HeaderMinimal() {
           <span className="ml-2 text-white/60 text-xs align-middle">Artist & Content Creator</span>
         </a>
         {/* Menu */}
-        <button
-          aria-label="Open menu"
-          onClick={() => setOpen(v => !v)}
-          className="text-white/80 hover:text-white p-2 rounded-lg border border-white/10"
-        >
-          {open ? <X size={18}/> : <Menu size={18}/>}
-        </button>
-        <button
-          type="button"
-          className="snipcart-checkout text-white/80 hover:text-white p-2 rounded-lg border border-white/10 ml-2"
-          aria-label="Open cart"
-        >
-          Cart (<span className="snipcart-items-count">0</span>)
-        </button>
-      </div>
+        <div className="flex items-center gap-3">
+  <button
+    aria-label="Open menu"
+    onClick={() => setOpen(v => !v)}
+    className="text-white/80 hover:text-white p-2 rounded-lg border border-white/10"
+  >
+    {open ? <X size={18}/> : <Menu size={18}/>}
+  </button>
+  <button
+    type="button"
+    className="snipcart-checkout text-white/80 hover:text-white p-2 rounded-lg border border-white/10"
+    aria-label="Open cart"
+  >
+    🛒 <span className="snipcart-items-count">0</span>
+  </button>
+</div>
+</div>
 
       {open && (
         <div className="absolute right-4 mt-1 w-48 rounded-xl border border-white/10 bg-black/90 shadow-lg">

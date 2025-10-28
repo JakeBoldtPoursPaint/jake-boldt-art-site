@@ -15,6 +15,9 @@
   <body class="bg-black">
     <div id="root"></div>
 
+    <!-- Boot the React app -->
+    <script type="module" src="/src/main.jsx"></script>
+
     <!-- 🔁 Redirect clean product URLs (e.g. /p/pendulum-energy) to hash URLs -->
     <script>
       (function () {
@@ -26,16 +29,15 @@
       })();
     </script>
 
-    <script type="module" src="/src/main.jsx"></script>
-
     <!-- ✅ Snipcart v3.7 official embed -->
     <div id="snipcart" hidden></div>
     <script>
       window.SnipcartSettings = {
-        publicApiKey: "MmUwOWYzNjYtN2RhYi00MWJlLTgxNzctMjhmMzBmMDhmN2FjNjM4OTcwMjY5NzQyMjU3MjIz",
+        publicApiKey:
+          "MmUwOWYzNjYtN2RhYi00MWJlLTgxNzctMjhmMzBmMDhmN2FjNjM4OTcwMjY5NzQyMjU3MjIz",
         loadStrategy: "always",
         modalStyle: "side",
-        currency: "USD"
+        currency: "USD",
       };
     </script>
 
