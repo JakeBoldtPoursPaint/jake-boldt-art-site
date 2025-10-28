@@ -45,7 +45,6 @@ function HeaderMinimal() {
       {open && (
         <div className="absolute right-4 mt-1 w-48 rounded-xl border border-white/10 bg-black/90 shadow-lg">
           <nav className="p-2 text-sm">
-            <a href="#gallery" className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10">Artwork</a>
             <a href="#links" className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10">Affiliate Links</a>
             <a href="https://jakeboldtpourspaint.gumroad.com/l/ieujo" target="_blank" rel="noreferrer" className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10">Pendulum Guide</a>
             <a href="#contact" className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10">Contact</a>
@@ -108,35 +107,6 @@ function Landing() {
   )
 }
 
-function Gallery() {
-  return (
-    <section id="gallery" className="bg-black border-t border-white/10 py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white">Artwork</h2>
-        <p className="text-white/60 mt-2">Video clips from the studio.</p>
-
-        <div className="mt-8 grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {GALLERY_VIDEOS.map(v => (
-            <div key={v.id} className="rounded-2xl overflow-hidden border border-white/10 bg-white/5">
-              <div className="aspect-[4/3]">
-                <video
-                  src={v.src}
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls={false}
-                />
-              </div>
-              <div className="p-4 text-white/80 text-sm">{v.title}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 function Links() {
   return (
@@ -383,7 +353,6 @@ export default function App() {
     <div className="min-h-screen bg-black text-white font-sans antialiased pt-14 neon-all">
       <HeaderMinimal />
       <Landing />
-      <Gallery />
       <Shop />
       <Links />
       <Contact />
