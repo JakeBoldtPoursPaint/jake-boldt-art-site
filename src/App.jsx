@@ -266,7 +266,7 @@ export const VIDEO_PRODUCTS = [
     slug: "pendulum-energy",
     name: "Pendulum Energy — Original",
     sold: true,
-    price: 180.00,
+    price: 9100.00,
     jsonUrl: "/products/pendulum-energy.json",
     videoSrc: "/videos/pendulum-energy.mp4"
   },
