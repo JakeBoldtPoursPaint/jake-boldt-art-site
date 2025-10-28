@@ -89,33 +89,33 @@ function Landing() {
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
   <a
     href="#shop"
-    className="neon-btn inline-flex items-center justify-center text-lg md:text-xl py-5 gap-3"
+    className="neon-btn inline-flex items-center justify-center text-2xl md:text-3xl font-extrabold py-6 gap-4"
   >
-    Artwork <ArrowRight size={22} />
+    Artwork <ArrowRight size={42} className="min-w-[42px] min-h-[42px]" />
   </a>
 
   <a
     href="#links"
-    className="neon-btn inline-flex items-center justify-center text-lg md:text-xl py-5 gap-3"
+    className="neon-btn inline-flex items-center justify-center text-2xl md:text-3xl font-extrabold py-6 gap-4"
   >
-    Affiliate Links <ArrowRight size={25} />
+    Affiliate Links <ArrowRight size={42} className="min-w-[42px] min-h-[42px]" />
   </a>
 
   <a
     href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
     target="_blank"
     rel="noreferrer"
-    className="neon-btn inline-flex items-center justify-center text-lg md:text-xl py-5 gap-3"
+    className="neon-btn inline-flex items-center justify-center text-2xl md:text-3xl font-extrabold py-6 gap-4"
   >
-    Pendulum Painting Guide <ArrowRight size={45} />
+    Pendulum Guide <ArrowRight size={42} className="min-w-[42px] min-h-[42px]" />
   </a>
 </div>
+
 
       </div>
     </section>
   )
 }
-
 
 
 function Links() {
