@@ -472,7 +472,7 @@ function Shop() {
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </Link>
 
-                <div className="p-4">
+                <div className="p-4 pt-6">
                   {/* CLICKABLE TITLE */}
                   <h3 className="text-lg font-semibold">
                     <Link
