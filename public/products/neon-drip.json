@@ -1,9 +1,11 @@
 {
   "id": "neon-drip-1",
   "name": "Neon Drip — Original",
-  "url": "https://jakeboldt.com/products/neon-drip.json",
-  "price": 250.00,
-  "description": "Original acrylic pour with signature line work.",
+  "dimensions": "10 x 10 in",
+  "price": 1450,
+  "status": "available",
   "image": "/videos/neon-drip.mp4",
-  "shippable": true
+  "shippable": true,
+  "url": "https://jakeboldt.com/products/neon-drip.json",
+  "description": "Acrylic on canvas."
 }

@@ -1,9 +1,11 @@
 {
   "id": "pendulum-energy-1",
   "name": "Pendulum Energy — Original",
-  "url": "https://jakeboldt.com/products/pendulum-energy.json",
-  "price": 180.00,
-  "description": "Original pendulum pour — acrylic on canvas. Signed.",
+  "dimensions": "48 x 48 in",
+  "price": 9100,
+  "status": "sold",
   "image": "/videos/pendulum-energy.mp4",
-  "shippable": true
+  "shippable": true,
+  "url": "https://jakeboldt.com/products/pendulum-energy.json",
+  "description": "Acrylic on canvas."
 }

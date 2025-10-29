@@ -1,9 +1,11 @@
 {
   "id": "cosmic-flow-1",
   "name": "Cosmic Flow — Original",
-  "url": "https://jakeboldt.com/products/cosmic-flow.json",
-  "price": 220.00,
-  "description": "Original canvas. High-contrast neon over deep blacks.",
+  "dimensions": "10 x 10 in",
+  "price": 820,
+  "status": "available",
   "image": "/videos/cosmic-flow.mp4",
-  "shippable": true
+  "shippable": true,
+  "url": "https://jakeboldt.com/products/cosmic-flow.json",
+  "description": "Acrylic on canvas."
 }

@@ -1,9 +1,11 @@
 {
   "id": "candy-drift-1",
   "name": "Candy Drift — Original",
-  "url": "https://jakeboldt.com/products/candy-drift.json",
-  "price": 1800.00,
-  "description": "Original acrylic pour / pendulum piece. Signed.",
+  "dimensions": "10 x 20 in",
+  "price": 1800,
+  "status": "available",
   "image": "/videos/candy-drift.mp4",
-  "shippable": true
+  "shippable": true,
+  "url": "https://jakeboldt.com/products/candy-drift.json",
+  "description": "Acrylic on canvas."
 }
