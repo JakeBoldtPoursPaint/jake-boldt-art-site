@@ -102,9 +102,9 @@ function Landing() {
       id="home"
       className="min-h-[100dvh] relative flex items-center justify-center bg-black overflow-hidden"
     >
-      {/* Background video */}
+      {/* Background video — full brightness */}
       <video
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        className="absolute inset-0 w-full h-full object-cover"
         src="/bg-loop.mp4"
         autoPlay
         loop
@@ -112,7 +112,7 @@ function Landing() {
         playsInline
       />
 
-      {/* Soft neon glow overlay */}
+      {/* Subtle glow */}
       <div
         className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1400px] h-[1400px] blur-3xl opacity-30"
         style={{
@@ -120,46 +120,63 @@ function Landing() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative max-w-3xl mx-auto px-4 text-center">
+      {/* CENTER content (title + mobile buttons) */}
+      <div className="relative max-w-3xl mx-auto px-4 text-center md:-translate-y-[10vh] lg:-translate-y-[14vh] xl:-translate-y-[18vh]">
         <h1 className="font-display text-5xl md:text-7xl tracking-wide leading-tight text-white animate-neon">
           Pendulum & Acrylic Pour Paintings
         </h1>
 
-        {/* Neon Buttons */}
-        <div className="mt-12 grid gap-4 sm:grid-cols-3">
-          {/* Artwork button (scroll down to shop) */}
-          <a
-            href="#shop"
-            className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
-          >
-            Artwork
-          </a>
-
-          {/* Jake's Supplies button (Amazon list) */}
-          <a
-            href="https://amzn.to/3JtYAgT"
-            target="_blank"
-            rel="noreferrer"
-            className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
-          >
-            Jake’s Supplies
-          </a>
-
-          {/* Pendulum Guide button (Gumroad) */}
-          <a
-            href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
-            target="_blank"
-            rel="noreferrer"
-            className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
-          >
-            Pendulum Guide
-          </a>
+        {/* MOBILE/TABLET buttons; hidden on xl+ */}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:hidden">
+          <a href="#shop" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">Artwork</a>
+          <a href="https://shop.decoart.com?ref=ndc2nti" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">My Paint (20% Off)</a>
+          <a href="https://amzn.to/3JtYAgT" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">Jake’s Supplies</a>
+          <a href="https://jakeboldtpourspaint.gumroad.com/l/ieujo" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">Pendulum Guide</a>
         </div>
+      </div>
+
+      {/* DESKTOP (xl+): side stacks — centered vertically, taller buttons, not near edges, hover zoom ON */}
+      {/* Left stack */}
+      <div className="hidden xl:flex flex-col gap-12 items-end absolute top-1/2 -translate-y-1/2 left-[9%] z-10">
+        <a
+          href="#shop"
+          className="neon-btn block text-4xl font-extrabold py-20 text-center leading-tight w-80"
+        >
+          Artwork
+        </a>
+        <a
+          href="https://shop.decoart.com?ref=ndc2nti"
+          target="_blank"
+          rel="noreferrer"
+          className="neon-btn block text-4xl font-extrabold py-20 text-center leading-tight w-80"
+        >
+          My Paint (20% Off)
+        </a>
+      </div>
+
+      {/* Right stack */}
+      <div className="hidden xl:flex flex-col gap-12 items-start absolute top-1/2 -translate-y-1/2 right-[9%] z-10">
+        <a
+          href="https://amzn.to/3JtYAgT"
+          target="_blank"
+          rel="noreferrer"
+          className="neon-btn block text-4xl font-extrabold py-20 text-center leading-tight w-80"
+        >
+          Jake’s Supplies
+        </a>
+        <a
+          href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
+          target="_blank"
+          rel="noreferrer"
+          className="neon-btn block text-4xl font-extrabold py-20 text-center leading-tight w-80"
+        >
+          Pendulum Guide
+        </a>
       </div>
     </section>
   );
 }
+
 
 // =====================
 // ABOUT / LINKS / SOCIAL
@@ -469,7 +486,7 @@ function Shop() {
                       </span>
                     </div>
                   )}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  
                 </Link>
 
                 <div className="p-4 pt-6">

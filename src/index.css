@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== Base ===== */
 body {
   @apply bg-black text-white;
 }
@@ -67,9 +68,7 @@ body::before {
 }
 
 /* === Unified hover interactions (no box) === */
-a,
-button,
-.snipcart-checkout {
+a, button, .snipcart-checkout {
   transition:
     transform 0.25s ease,
     text-shadow 0.25s ease,
@@ -78,9 +77,7 @@ button,
   transform-origin: center;
 }
 
-a:hover,
-button:hover,
-.snipcart-checkout:hover {
+a:hover, button:hover, .snipcart-checkout:hover {
   transform: scale(1.08);
   opacity: 0.95;
   filter: brightness(1.15);
@@ -103,7 +100,7 @@ button:hover,
   text-shadow: none !important;
 }
 
-/* === Accessibility: no animation if reduced motion === */
+/* === Accessibility: reduce motion === */
 @media (prefers-reduced-motion: reduce) {
   .neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em),
   .neon-strong,
@@ -113,8 +110,8 @@ button:hover,
     text-shadow: none !important;
   }
 }
-/* === Custom Neon Button Effects (Solid Color Pulse) === */
 
+/* ===== Neon Buttons ===== */
 .neon-btn {
   position: relative;
   display: inline-flex;
@@ -156,29 +153,53 @@ button:hover,
   animation: pulse 1.8s infinite;
 }
 
-/* === Keyframes === */
-
-/* alternate between solid pink and purple */
+/* === Keyframes for neon button === */
 @keyframes colorPulse {
-  0%, 100% {
-    background-color: #ff32ff;
-  }
-  50% {
-    background-color: #9b4dff;
-  }
+  0%, 100% { background-color: #ff32ff; }
+  50%      { background-color: #9b4dff; }
 }
 
 @keyframes pulse {
-  0% {
-    opacity: 0.9;
-    transform: scale(1);
-  }
-  70% {
-    opacity: 0;
-    transform: scale(1.4);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.4);
-  }
+  0%   { opacity: 0.9; transform: scale(1); }
+  70%  { opacity: 0;   transform: scale(1.4); }
+  100% { opacity: 0;   transform: scale(1.4); }
+}
+
+/* ===== Hero Title Outline (keeps glow) ===== */
+.text-stroke-black {
+  -webkit-text-stroke: 2px #000;     /* tune thickness here */
+  -webkit-text-fill-color: #fff;     /* keep fill white */
+  paint-order: stroke fill;
+}
+@media (max-width: 640px) {
+  .text-stroke-black { -webkit-text-stroke: 1.5px #000; }
+}
+
+/* ===== Spiral Confetti ===== */
+@keyframes spiralFall {
+  0%   { transform: translateY(-10vh) rotate(0deg); opacity: 0.6; } /* visible from start */
+  10%  { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0.85; }
+}
+
+@keyframes spiralSway {
+  0%   { transform: translateX(-12px); }
+  50%  { transform: translateX(12px); }
+  100% { transform: translateX(-12px); }
+}
+
+/* Base style for each spiral emoji */
+.spiral {
+  position: absolute;
+  top: -5vh;
+  font-size: 18px;                 /* base size */
+  pointer-events: none;            /* don't block clicks */
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.45));
+  animation:
+    spiralFall var(--dur, 9s) linear var(--delay, 0s) infinite,
+    spiralSway 2.8s ease-in-out var(--delay, 0s) infinite alternate;
+}
+
+@media (max-width: 640px) {
+  .spiral { font-size: 14px; filter: none; }
 }
