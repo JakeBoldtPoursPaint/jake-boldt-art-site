@@ -1,60 +1,93 @@
-import React, { useState } from 'react'
-import { Menu, X, ArrowRight } from 'lucide-react'
-import { Link } from "react-router-dom"; // ← added
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const ACCENT = '#ee05fa'
+const ACCENT = "#ee05fa";
 
-// === Videos for the gallery ===
-// Drop files into /public and list them here
+// (not used directly but leaving here for future gallery stuff)
 const GALLERY_VIDEOS = [
-  { id: 1, title: 'Pendulum Pour #1', src: '/pour1.mp4' },
-  { id: 2, title: 'Pendulum Pour #2', src: '/pour2.mp4' },
-  { id: 3, title: 'Pendulum Pour #3', src: '/pour3.mp4' },
-  // Add more like { id: 4, title: '...', src: '/pour4.mp4' },
-]
+  { id: 1, title: "Pendulum Pour #1", src: "/pour1.mp4" },
+  { id: 2, title: "Pendulum Pour #2", src: "/pour2.mp4" },
+  { id: 3, title: "Pendulum Pour #3", src: "/pour3.mp4" },
+];
 
+// =====================
+// HEADER (tall, with cart)
+// =====================
 function HeaderMinimal() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   return (
     <header className="fixed inset-x-0 top-0 z-40 bg-black/60 backdrop-blur border-b border-white/10">
-      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* Brand */}
-        <a href="#home" className="text-white hover:text-white font-semibold tracking-tight">
-          Jake Boldt
-          <span className="ml-2 text-white/60 text-xs align-middle">Artist & Content Creator</span>
+        <a
+          href="#home"
+          className="text-white hover:text-white font-semibold tracking-tight leading-tight"
+        >
+          <div className="text-lg font-semibold text-white">
+            Jake Boldt
+          </div>
+          <div className="text-white/60 text-[0.7rem] md:text-xs">
+            Artist &amp; Content Creator
+          </div>
         </a>
-        {/* Menu */}
+
+        {/* Menu + Cart */}
         <div className="flex items-center gap-3">
-  <button
-    aria-label="Open menu"
-    onClick={() => setOpen(v => !v)}
-    className="text-white/80 hover:text-white p-2 rounded-lg border border-white/10"
-  >
-    {open ? <X size={18}/> : <Menu size={18}/>}
-  </button>
-  <button
-    type="button"
-    className="snipcart-checkout text-white/80 hover:text-white p-2 rounded-lg border border-white/10"
-    aria-label="Open cart"
-  >
-    🛒 <span className="snipcart-items-count">0</span>
-  </button>
-</div>
-</div>
+          {/* Cart button is back */}
+          <button
+            type="button"
+            className="snipcart-checkout text-white/80 hover:text-white p-3 rounded-lg border border-white/10"
+            aria-label="Open cart"
+          >
+            🛒 <span className="snipcart-items-count">0</span>
+          </button>
+
+          {/* Menu toggle */}
+          <button
+            aria-label="Open menu"
+            onClick={() => setOpen((v) => !v)}
+            className="text-white/80 hover:text-white p-3 rounded-lg border border-white/10"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </div>
 
       {open && (
         <div className="absolute right-4 mt-1 w-48 rounded-xl border border-white/10 bg-black/90 shadow-lg">
           <nav className="p-2 text-sm">
-            <a href="#links" className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10">Affiliate Links</a>
-            <a href="https://jakeboldtpourspaint.gumroad.com/l/ieujo" target="_blank" rel="noreferrer" className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10">Pendulum Guide</a>
-            <a href="#contact" className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10">Contact</a>
+            <a
+              href="#links"
+              className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10"
+            >
+              Affiliate Links
+            </a>
+            <a
+              href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
+              target="_blank"
+              rel="noreferrer"
+              className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10"
+            >
+              Pendulum Guide
+            </a>
+            <a
+              href="#contact"
+              className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10"
+            >
+              Contact
+            </a>
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }
 
+// =====================
+// LANDING / HERO
+// buttons: centered text, NO arrow
+// =====================
 function Landing() {
   return (
     <section
@@ -87,46 +120,57 @@ function Landing() {
 
         {/* Neon Buttons */}
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
-  <a
-    href="#shop"
-    className="neon-btn inline-flex items-center justify-center text-2xl md:text-3xl font-extrabold py-6 gap-4"
-  >
-    Artwork <ArrowRight size={42} className="min-w-[42px] min-h-[42px]" />
-  </a>
+          {/* Artwork button */}
+          <a
+            href="#shop"
+            className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
+          >
+            Artwork
+          </a>
 
-  <a
-    href="#links"
-    className="neon-btn inline-flex items-center justify-center text-2xl md:text-3xl font-extrabold py-6 gap-4"
-  >
-    Affiliate Links <ArrowRight size={42} className="min-w-[42px] min-h-[42px]" />
-  </a>
+          {/* Affiliate Links button */}
+          <a
+            href="#links"
+            className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
+          >
+            Affiliate Links
+          </a>
 
-  <a
-    href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
-    target="_blank"
-    rel="noreferrer"
-    className="neon-btn inline-flex items-center justify-center text-2xl md:text-3xl font-extrabold py-6 gap-4"
-  >
-    Pendulum Guide <ArrowRight size={42} className="min-w-[42px] min-h-[42px]" />
-  </a>
-</div>
-
-
+          {/* Pendulum Guide button */}
+          <a
+            href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
+            target="_blank"
+            rel="noreferrer"
+            className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
+          >
+            Pendulum Guide
+          </a>
+        </div>
       </div>
     </section>
-  )
+  );
 }
 
-
+// =====================
+// ABOUT / LINKS / SOCIAL
+// =====================
 function Links() {
   return (
-    <section id="about" className="bg-black border-t border-white/10 py-20">
+    <section
+      id="about"
+      className="bg-black border-t border-white/10 py-20"
+    >
       <div className="max-w-2xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-semibold text-white mb-6">About Me</h2>
+        <h2 className="text-3xl font-semibold text-white mb-6">
+          About Me
+        </h2>
         <p className="text-white/70 mb-10 leading-relaxed">
-          I’m a visual artist based in Los Angeles, known for pendulum and acrylic-pour paintings where gravity and motion
-          become the brush. My work blends color, physics, and rhythm — transforming raw paint into movement and emotion.  
-          Through social-media videos and art tutorials, I share the process so anyone can explore creativity on their own canvas.
+          I’m a visual artist known for pendulum and acrylic-pour
+          paintings where gravity and motion become the brush. My work
+          blends color, physics, and rhythm — transforming raw paint
+          into movement and emotion. Through social-media videos and art
+          tutorials, I share the process so anyone can explore
+          creativity on their own canvas.
         </p>
 
         <div className="flex justify-center gap-6">
@@ -161,16 +205,25 @@ function Links() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
+// =====================
+// CONTACT
+// =====================
 function Contact() {
   return (
-    <section id="contact" className="bg-black border-t border-white/10 py-20">
+    <section
+      id="contact"
+      className="bg-black border-t border-white/10 py-20"
+    >
       <div className="max-w-xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-semibold text-white mb-4">Contact Me</h2>
+        <h2 className="text-3xl font-semibold text-white mb-4">
+          Contact Me
+        </h2>
         <p className="text-white/60 mb-8">
-          Want to collaborate, commission a piece, or learn more? Fill out the form and I’ll get back to you.
+          Want to collaborate, commission a piece, or learn more? Fill
+          out the form and I’ll get back to you.
         </p>
 
         <form
@@ -212,47 +265,63 @@ function Contact() {
         </form>
       </div>
     </section>
-  )
+  );
 }
 
+// =====================
+// EXTRA SHOP LINKS SECTION (not auto-rendered in main flow)
+// =====================
 function GuidesandAffliates() {
   const items = [
     {
-      id: 'gumroad',
-      title: 'Pendulum Painting Guide (PDF)',
+      id: "gumroad",
+      title: "Pendulum Painting Guide (PDF)",
       blurb:
-        'My step-by-step pendulum course: setup, paint ratios, swing control, troubleshooting, and pro tips.',
-      cta: 'View on Gumroad',
-      href: 'https://jakeboldtpourspaint.gumroad.com/l/ieujo',
-      tag: 'Digital Download',
+        "My step-by-step pendulum course: setup, paint ratios, swing control, troubleshooting, and pro tips.",
+      cta: "View on Gumroad",
+      href: "https://jakeboldtpourspaint.gumroad.com/l/ieujo",
+      tag: "Digital Download",
     },
     {
-      id: 'decoart',
-      title: 'DecoArt Paints (Affiliate)',
+      id: "decoart",
+      title: "DecoArt Paints (Affiliate)",
       blurb:
-        'The paint line I use for acrylic pours. Using this link supports my art at no extra cost.',
-      cta: 'Shop DecoArt (Affiliate)',
-      href: 'https://shop.decoart.com?ref=ndc2nti',
-      tag: 'Materials',
+        "The paint line I use for acrylic pours. Using this link supports my art at no extra cost.",
+      cta: "Shop DecoArt (Affiliate)",
+      href: "https://shop.decoart.com?ref=ndc2nti",
+      tag: "Materials",
     },
-  ]
+  ];
 
   return (
-    <section id="shop" className="bg-black border-t border-white/10 py-20">
+    <section
+      id="links"
+      className="bg-black border-t border-white/10 py-20"
+    >
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-semibold text-white">Shop</h2>
           <p className="text-white/60 mt-2">
-            Courses and materials I personally use. Some links are affiliate—thanks for the support!
+            Courses and materials I personally use. Some links are
+            affiliate—thanks for the support!
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((it) => (
-            <div key={it.id} className="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-col">
-              <div className="text-xs uppercase tracking-wide text-white/50 mb-2">{it.tag}</div>
-              <h3 className="text-lg font-semibold text-white mb-2">{it.title}</h3>
-              <p className="text-white/70 text-sm mb-5 flex-1">{it.blurb}</p>
+            <div
+              key={it.id}
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 flex flex-col"
+            >
+              <div className="text-xs uppercase tracking-wide text-white/50 mb-2">
+                {it.tag}
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">
+                {it.title}
+              </h3>
+              <p className="text-white/70 text-sm mb-5 flex-1">
+                {it.blurb}
+              </p>
               <a
                 href={it.href}
                 target="_blank"
@@ -266,10 +335,12 @@ function GuidesandAffliates() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-// === VIDEO PRODUCTS (edit names/prices/paths if yours differ) ===
+// =====================
+// VIDEO_PRODUCTS DATA
+// =====================
 export const VIDEO_PRODUCTS = [
   {
     id: "pendulum-energy-1",
@@ -278,7 +349,7 @@ export const VIDEO_PRODUCTS = [
     sold: true,
     price: 9100.0,
     jsonUrl: "/products/pendulum-energy.json",
-    videoSrc: "/videos/pendulum-energy.mp4"
+    videoSrc: "/videos/pendulum-energy.mp4",
   },
   {
     id: "cosmic-flow-1",
@@ -286,7 +357,7 @@ export const VIDEO_PRODUCTS = [
     name: "Cosmic Flow — Original",
     price: 820.0,
     jsonUrl: "/products/cosmic-flow.json",
-    videoSrc: "/videos/cosmic-flow.mp4"
+    videoSrc: "/videos/cosmic-flow.mp4",
   },
   {
     id: "neon-drip-1",
@@ -294,7 +365,7 @@ export const VIDEO_PRODUCTS = [
     name: "Neon Drip — Original",
     price: 1450.0,
     jsonUrl: "/products/neon-drip.json",
-    videoSrc: "/videos/neon-drip.mp4"
+    videoSrc: "/videos/neon-drip.mp4",
   },
   {
     id: "candy-drift-1",
@@ -302,7 +373,7 @@ export const VIDEO_PRODUCTS = [
     name: "Candy Drift — Original",
     price: 1800.0,
     jsonUrl: "/products/candy-drift.json",
-    videoSrc: "/videos/candy-drift.mp4"
+    videoSrc: "/videos/candy-drift.mp4",
   },
   {
     id: "spring-melt-1",
@@ -310,7 +381,7 @@ export const VIDEO_PRODUCTS = [
     name: "Spring Melt — Original",
     price: 7800,
     jsonUrl: "/products/spring-melt.json",
-    videoSrc: "/videos/spring-melt.mp4"
+    videoSrc: "/videos/spring-melt.mp4",
   },
   {
     id: "voltage-drip-1",
@@ -318,90 +389,126 @@ export const VIDEO_PRODUCTS = [
     name: "Voltage Drip — Original",
     price: 3500,
     jsonUrl: "/products/voltage-drip.json",
-    videoSrc: "/videos/voltage-drip.mp4"
-  }
+    videoSrc: "/videos/voltage-drip.mp4",
+  },
 ];
 
-
-// --- Shop with video cards ---
+// =====================
+// SHOP SECTION (homepage gallery)
+// - strips "— Original" in UI
+// - video is clickable
+// - SOLD overlay
+// - Add to Cart for available
+// =====================
 function Shop() {
+  // helper: clean the name for display on the card
+  function cleanName(name) {
+    if (!name) return "";
+    // remove " - Original", " – Original", " — Original", or just "Original" at the end
+    let out = name.replace(/\s*[-–—]\s*Original\s*$/i, "");
+    out = out.replace(/\s*Original\s*$/i, "");
+    return out.trim();
+  }
+
   return (
-    <section id="shop" className="py-16 border-t border-white/10 bg-black">
+    <section
+      id="shop"
+      className="py-16 border-t border-white/10 bg-black"
+    >
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="font-display text-3xl md:text-4xl mb-8 animate-neon">
           Artwork
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {VIDEO_PRODUCTS.map(p => (
-            <article
-              key={p.id}
-              className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
-            >
-              <div className="relative aspect-[9/16] bg-black overflow-hidden">
-                <video
-                  src={p.videoSrc}
-                  playsInline
-                  autoPlay
-                  loop
-                  muted
-                  className="w-full h-full object-cover"
-                  preload="metadata"
-                />
-                {p.sold && (
-  <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-    <span className="text-4xl font-extrabold text-red-500 drop-shadow-lg">SOLD</span>
-  </div>
-)}
-                {/* optional subtle overlay for readability */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              </div>
+          {VIDEO_PRODUCTS.map((p) => {
+            const displayName = cleanName(p.name);
 
-              <div className="p-4">
-                <h3 className="text-lg font-semibold">
-                  <Link
-                    to={`/p/${p.slug}`}
-                    className="hover:underline focus:underline"
-                  >
-                    {p.name}
-                  </Link>
-                </h3>
-                <p className="text-white/70 mt-1">${p.price.toFixed(2)}</p>
+            return (
+              <article
+                key={p.id}
+                className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
+              >
+                {/* CLICKABLE VIDEO */}
+                <Link
+                  to={`/p/${p.slug}`}
+                  className="block relative aspect-[9/16] bg-black overflow-hidden"
+                >
+                  <video
+                    src={p.videoSrc}
+                    playsInline
+                    autoPlay
+                    loop
+                    muted
+                    className="w-full h-full object-cover"
+                    preload="metadata"
+                  />
+                  {p.sold && (
+                    <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                      <span className="text-4xl font-extrabold text-red-500 drop-shadow-lg">
+                        SOLD
+                      </span>
+                    </div>
+                  )}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </Link>
 
-                {p.sold ? (
-  <p className="mt-4 text-red-500 font-bold">SOLD</p>
-) : (
-  <a
-    href="#"
-    className="snipcart-add-item mt-4 inline-block rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition"
-    data-item-id={p.id}
-    data-item-name={p.name}
-    data-item-url={p.jsonUrl}
-    data-item-price={p.price.toFixed(2)}
-    data-item-image={p.videoSrc}
-    data-item-description="Original artwork by Jake Boldt"
-  >
-    Add to Cart — ${p.price.toFixed(2)}
-  </a>
-)}
+                <div className="p-4">
+                  {/* CLICKABLE TITLE (clean, no "— Original") */}
+                  <h3 className="text-lg font-semibold">
+                    <Link
+                      to={`/p/${p.slug}`}
+                      className="hover:underline focus:underline"
+                    >
+                      {displayName}
+                    </Link>
+                  </h3>
 
-              </div>
-            </article>
-          ))}
+                  {/* PRICE */}
+                  <p className="text-white/70 mt-1">
+                    ${p.price.toFixed(2)}
+                  </p>
+
+                  {/* SOLD / ADD TO CART */}
+                  {p.sold ? (
+                    <p className="mt-4 text-red-500 font-bold">
+                      SOLD
+                    </p>
+                  ) : (
+                    <a
+                      href="#"
+                      className="snipcart-add-item mt-4 inline-block rounded-xl bg-[#ee05fa] text-black font-semibold px-4 py-2 hover:opacity-90 transition"
+                      data-item-id={p.id}
+                      data-item-name={displayName}
+                      data-item-url={p.jsonUrl}
+                      data-item-price={p.price.toFixed(2)}
+                      data-item-image={p.videoSrc}
+                      data-item-description="Original artwork by Jake Boldt"
+                    >
+                      Add to Cart — ${p.price.toFixed(2)}
+                    </a>
+                  )}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
+// =====================
+// MAIN APP
+// =====================
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-white font-sans antialiased pt-14 neon-all">
+    <div className="min-h-screen bg-black text-white font-sans antialiased pt-20 neon-all">
       <HeaderMinimal />
       <Landing />
       <Shop />
       <Links />
       <Contact />
     </div>
-  )
+  );
 }
