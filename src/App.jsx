@@ -414,13 +414,18 @@ export const VIDEO_PRODUCTS = [
 // - Add to Cart for available
 // =====================
 function Shop() {
-  // helper: clean the name for display on the card
+  // remove " — Original" etc
   function cleanName(name) {
     if (!name) return "";
-    // remove " - Original", " – Original", " — Original", or just "Original" at the end
     let out = name.replace(/\s*[-–—]\s*Original\s*$/i, "");
     out = out.replace(/\s*Original\s*$/i, "");
     return out.trim();
+  }
+
+  // format 3500 -> $3,500
+  function formatPrice(num) {
+    if (num === undefined || num === null) return "";
+    return `$${num.toLocaleString("en-US")}`;
   }
 
   return (
@@ -436,6 +441,7 @@ function Shop() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {VIDEO_PRODUCTS.map((p) => {
             const displayName = cleanName(p.name);
+            const humanPrice = formatPrice(p.price); // "$3,500"
 
             return (
               <article
@@ -467,7 +473,7 @@ function Shop() {
                 </Link>
 
                 <div className="p-4">
-                  {/* CLICKABLE TITLE (clean, no "— Original") */}
+                  {/* CLICKABLE TITLE */}
                   <h3 className="text-lg font-semibold">
                     <Link
                       to={`/p/${p.slug}`}
@@ -477,10 +483,8 @@ function Shop() {
                     </Link>
                   </h3>
 
-                  {/* PRICE */}
-                  <p className="text-white/70 mt-1">
-                    ${p.price.toFixed(2)}
-                  </p>
+                  {/* PRICE, NO .00 */}
+                  <p className="text-white/70 mt-1">{humanPrice}</p>
 
                   {/* SOLD / ADD TO CART */}
                   {p.sold ? (
@@ -494,11 +498,11 @@ function Shop() {
                       data-item-id={p.id}
                       data-item-name={displayName}
                       data-item-url={p.jsonUrl}
-                      data-item-price={p.price.toFixed(2)}
+                      data-item-price={p.price.toFixed(2)}  // this stays toFixed(2) for Snipcart backend
                       data-item-image={p.videoSrc}
                       data-item-description="Original artwork by Jake Boldt"
                     >
-                      Add to Cart — ${p.price.toFixed(2)}
+                      Add to Cart — {humanPrice}
                     </a>
                   )}
                 </div>
