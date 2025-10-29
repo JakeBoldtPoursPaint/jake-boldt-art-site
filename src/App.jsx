@@ -303,9 +303,24 @@ export const VIDEO_PRODUCTS = [
     price: 1800.0,
     jsonUrl: "/products/candy-drift.json",
     videoSrc: "/videos/candy-drift.mp4"
-    // sold: true // <-- uncomment this line and add a comma after videoSrc if Candy Drift is sold
+  },
+  {
+    id: "spring-melt-1",
+    slug: "spring-melt",
+    name: "Spring Melt — Original",
+    price: 7800,
+    jsonUrl: "/products/spring-melt.json",
+    videoSrc: "/videos/spring-melt.mp4"
+  },
+  {
+    id: "voltage-drip-1",
+    slug: "voltage-drip",
+    name: "Voltage Drip — Original",
+    price: 3500,
+    jsonUrl: "/products/voltage-drip.json",
+    videoSrc: "/videos/voltage-drip.mp4"
   }
-]
+];
 
 
 // --- Shop with video cards ---
