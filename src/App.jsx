@@ -276,7 +276,7 @@ export const VIDEO_PRODUCTS = [
     slug: "pendulum-energy",
     name: "Pendulum Energy — Original",
     sold: true,
-    price: 9100.00,
+    price: 9100.0,
     jsonUrl: "/products/pendulum-energy.json",
     videoSrc: "/videos/pendulum-energy.mp4"
   },
@@ -284,7 +284,7 @@ export const VIDEO_PRODUCTS = [
     id: "cosmic-flow-1",
     slug: "cosmic-flow",
     name: "Cosmic Flow — Original",
-    price: 820.00,
+    price: 820.0,
     jsonUrl: "/products/cosmic-flow.json",
     videoSrc: "/videos/cosmic-flow.mp4"
   },
@@ -292,11 +292,21 @@ export const VIDEO_PRODUCTS = [
     id: "neon-drip-1",
     slug: "neon-drip",
     name: "Neon Drip — Original",
-    price: 1450.00,
+    price: 1450.0,
     jsonUrl: "/products/neon-drip.json",
     videoSrc: "/videos/neon-drip.mp4"
+  },
+  {
+    id: "candy-drift-1",
+    slug: "candy-drift",
+    name: "Candy Drift — Original",
+    price: 1800.0,
+    jsonUrl: "/products/candy-drift.json",
+    videoSrc: "/videos/candy-drift.mp4"
+    // sold: true // <-- uncomment this line and add a comma after videoSrc if Candy Drift is sold
   }
 ]
+
 
 // --- Shop with video cards ---
 function Shop() {
