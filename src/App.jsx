@@ -12,7 +12,7 @@ const GALLERY_VIDEOS = [
 ];
 
 // =====================
-// HEADER (tall, with cart)
+// HEADER (tall, with cart, menu item now "Jake’s Supplies")
 // =====================
 function HeaderMinimal() {
   const [open, setOpen] = useState(false);
@@ -32,9 +32,9 @@ function HeaderMinimal() {
           </div>
         </a>
 
-        {/* Menu + Cart */}
+        {/* Cart + Menu */}
         <div className="flex items-center gap-3">
-          {/* Cart button is back */}
+          {/* Cart */}
           <button
             type="button"
             className="snipcart-checkout text-white/80 hover:text-white p-3 rounded-lg border border-white/10"
@@ -57,12 +57,17 @@ function HeaderMinimal() {
       {open && (
         <div className="absolute right-4 mt-1 w-48 rounded-xl border border-white/10 bg-black/90 shadow-lg">
           <nav className="p-2 text-sm">
+            {/* Jake's Supplies (Amazon list) */}
             <a
-              href="#links"
+              href="https://amzn.to/3JtYAgT"
+              target="_blank"
+              rel="noreferrer"
               className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10"
             >
-              Affiliate Links
+              Jake’s Supplies
             </a>
+
+            {/* Pendulum Guide (Gumroad) */}
             <a
               href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
               target="_blank"
@@ -71,6 +76,8 @@ function HeaderMinimal() {
             >
               Pendulum Guide
             </a>
+
+            {/* Contact (scrolls to form on page) */}
             <a
               href="#contact"
               className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10"
@@ -86,7 +93,8 @@ function HeaderMinimal() {
 
 // =====================
 // LANDING / HERO
-// buttons: centered text, NO arrow
+// Buttons: Artwork / Jake's Supplies / Pendulum Guide
+// No arrows, centered text
 // =====================
 function Landing() {
   return (
@@ -120,7 +128,7 @@ function Landing() {
 
         {/* Neon Buttons */}
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
-          {/* Artwork button */}
+          {/* Artwork button (scroll down to shop) */}
           <a
             href="#shop"
             className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
@@ -128,15 +136,17 @@ function Landing() {
             Artwork
           </a>
 
-          {/* Affiliate Links button */}
+          {/* Jake's Supplies button (Amazon list) */}
           <a
-            href="#links"
+            href="https://amzn.to/3JtYAgT"
+            target="_blank"
+            rel="noreferrer"
             className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
           >
-            Affiliate Links
+            Jake’s Supplies
           </a>
 
-          {/* Pendulum Guide button */}
+          {/* Pendulum Guide button (Gumroad) */}
           <a
             href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
             target="_blank"
@@ -153,6 +163,7 @@ function Landing() {
 
 // =====================
 // ABOUT / LINKS / SOCIAL
+// (this section is still id="about", we just don't pretend it's the affiliate link target anymore)
 // =====================
 function Links() {
   return (
@@ -269,7 +280,8 @@ function Contact() {
 }
 
 // =====================
-// EXTRA SHOP LINKS SECTION (not auto-rendered in main flow)
+// (Keeping GuidesandAffliates component in the file for now in case you ever want
+// an on-page gear grid later, but we are NOT rendering it, and we're not linking to it.)
 // =====================
 function GuidesandAffliates() {
   const items = [
@@ -300,10 +312,11 @@ function GuidesandAffliates() {
     >
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold text-white">Shop</h2>
+          <h2 className="text-3xl font-semibold text-white">
+            Jake’s Supplies
+          </h2>
           <p className="text-white/60 mt-2">
-            Courses and materials I personally use. Some links are
-            affiliate—thanks for the support!
+            My studio kit: paints, pouring medium, canvases, tools.
           </p>
         </div>
 

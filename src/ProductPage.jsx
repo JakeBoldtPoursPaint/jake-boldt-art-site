@@ -70,8 +70,8 @@ export default function ProductPage() {
   }
 
   const displayName = cleanName(p.name);
-  const sizeText = details?.dimensions || "";          // e.g. "36 x 48 in"
-  const mediumText = details?.description || "";       // e.g. "Acrylic on canvas."
+  const sizeText = details?.dimensions || "";    // e.g. "36 x 48 in"
+  const mediumText = details?.description || ""; // e.g. "Acrylic on canvas."
 
   return (
     <div className="min-h-screen bg-black text-white font-sans antialiased pt-14 neon-all">
@@ -136,8 +136,15 @@ export default function ProductPage() {
             ) : (
               <div className="mt-6 space-y-4">
                 {/* Price */}
-                <div className="text-2xl font-semibold text-white">
-                  {formatPrice(p.price)}
+                <div>
+                  <div className="text-2xl font-semibold text-white">
+                    {formatPrice(p.price)}
+                  </div>
+
+                  {/* shipping policy note */}
+                  <div className="text-white/50 text-xs mt-1 leading-relaxed">
+                    U.S. shipping included. For international shipping, please contact before purchase.
+                  </div>
                 </div>
 
                 {/* Add to Cart button */}
