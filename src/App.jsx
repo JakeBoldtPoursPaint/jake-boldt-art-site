@@ -122,9 +122,7 @@ function Landing() {
 
       {/* CENTER content (title + mobile buttons) */}
       <div className="relative max-w-3xl mx-auto px-4 text-center md:-translate-y-[10vh] lg:-translate-y-[14vh] xl:-translate-y-[18vh]">
-        <h1 className="font-display text-5xl md:text-7xl tracking-wide leading-tight text-white animate-neon">
-          Pendulum & Acrylic Pour Paintings
-        </h1>
+        
 
         {/* MOBILE/TABLET buttons; hidden on xl+ */}
         <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:hidden">
