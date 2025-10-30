@@ -121,7 +121,8 @@ function Landing() {
       />
 
       {/* CENTER content (title + mobile buttons) */}
-      <div className="relative max-w-3xl mx-auto px-4 text-center md:-translate-y-[10vh] lg:-translate-y-[14vh] xl:-translate-y-[18vh]">
+      <div className="relative max-w-3xl mx-auto px-4 text-center -translate-y-[8vh] md:-translate-y-[10vh] lg:-translate-y-[14vh] xl:-translate-y-[18vh]">
+
         
 
         {/* MOBILE/TABLET buttons; hidden on xl+ */}
