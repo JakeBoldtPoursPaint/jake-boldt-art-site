@@ -105,7 +105,7 @@ function Landing() {
       {/* Background video — full brightness */}
 <video
   className="absolute inset-0 w-full h-full object-cover"
-  src="/bg-loop.optim.mp4"
+  src="/bg-loop.mp4"
   autoPlay
   loop
   muted
