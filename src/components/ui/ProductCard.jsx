@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 export default function ProductCard({ product }) {
   // product is one item from VIDEO_PRODUCTS
-
   const [details, setDetails] = useState(null);
 
   // Load extra info (dimensions, "Acrylic on canvas.", status) from the JSON file in /public/products/
@@ -63,6 +62,8 @@ export default function ProductCard({ product }) {
           loop
           playsInline
           autoPlay
+          preload="metadata"
+          loading="lazy"
         />
       </div>
 

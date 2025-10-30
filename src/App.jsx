@@ -103,14 +103,17 @@ function Landing() {
       className="min-h-[100dvh] relative flex items-center justify-center bg-black overflow-hidden"
     >
       {/* Background video — full brightness */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/bg-loop.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+<video
+  className="absolute inset-0 w-full h-full object-cover"
+  src="/bg-loop.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="metadata"
+  loading="lazy"
+/>
+
 
       {/* Subtle glow */}
       <div
