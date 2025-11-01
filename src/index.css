@@ -2,10 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ✅ UV Haze + Purple Fringe (enhanced) */
+.uv-haze {
+  position: relative;
+  display: inline-block;
+  color: #39ff14 !important; /* neon green core */
+  text-shadow:
+    0 0 8px #39ff14,
+    0 0 15px #39ff14,
+    0 0 30px #39ff14,
+    0 0 45px #39ff14,
+    0 0 10px #a300ff,   /* purple fringe core */
+    0 0 24px #a300ff,
+    0 0 50px #a300ff;
+  filter: brightness(1.45);
+  z-index: 3;
+}
+
+/* Green inner fog breathing */
+.uv-haze::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: #39ff14;
+  opacity: 0.35;
+  filter: blur(18px);
+  z-index: -2;
+  animation: uvBreath 4.8s ease-in-out infinite;
+}
+
+/* Outer purple UV aura — boosted & wider */
+.uv-haze::after {
+  content: "";
+  position: absolute;
+  inset: -10px; /* bigger radius */
+  border-radius: 14px;
+  background: rgba(163, 0, 255, 0.75); /* vivid UV violet */
+  opacity: 0.45; /* stronger presence */
+  filter: blur(42px) saturate(2); /* wider & richer haze */
+  z-index: -3;
+  animation: uvBreath 5.8s ease-in-out infinite,
+             uvSway 7.2s ease-in-out infinite;
+}
+
+/* Breathing expansion */
+@keyframes uvBreath {
+  0% {
+    opacity: 0.15;
+    transform: scale(1);
+    filter: blur(15px);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(3.4);
+    filter: blur(38px);
+  }
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+    filter: blur(15px);
+  }
+}
+
+/* Slight drift for organic feel */
+@keyframes uvSway {
+  0%   { transform: translate(0,0); }
+  50%  { transform: translate(3px, -3px); }
+  100% { transform: translate(0,0); }
+}
+
 /* ===== Base ===== */
 body {
   @apply bg-black text-white;
 }
+
+
 
 /* === Neon color palette === */
 :root {
@@ -44,10 +116,11 @@ body::before {
 }
 
 /* === Neon pulse on all text (keep letters white) === */
-.neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em) {
+.neon-all :where(h1,h2,h3,h4,h5,h6,p,a,button,span,small,li,label,th,td,strong,em):not(.uv-pulse) {
   animation: neonPulse 4.2s cubic-bezier(0.66, 0, 0.34, 1) infinite;
   color: #fff !important;
 }
+
 
 /* Keep links bright and crisp */
 .neon-all a {
@@ -202,4 +275,58 @@ a:hover, button:hover, .snipcart-checkout:hover {
 
 @media (max-width: 640px) {
   .spiral { font-size: 14px; filter: none; }
+}
+
+/* UV Glow override */
+@layer utilities {
+  .uv-glow {
+    animation: none !important;
+    color: #39ff14 !important;
+    text-shadow:
+      0 0 3px #39ff14,
+      0 0 6px #39ff14,
+      0 0 12px #39ff14;
+  }
+}
+/* UV haze breathing effect */
+.uv-haze {
+  position: relative;
+  display: inline-block;
+  color: #39ff14 !important;
+  text-shadow:
+    0 0 3px #39ff14,
+    0 0 8px #39ff14,
+    0 0 15px #39ff14;
+}
+
+/* Halo fog "breath" */
+.uv-haze::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: #39ff14;
+  filter: blur(14px);
+  opacity: 0.25;
+  z-index: -1;
+  animation: uvBreath 5s ease-in-out infinite;
+}
+
+/* Breathing animation */
+@keyframes uvBreath {
+  0% {
+    transform: scale(1);
+    opacity: 0.18;
+    filter: blur(10px);
+  }
+  50% {
+    transform: scale(2.6);
+    opacity: 0.32;
+    filter: blur(25px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.18;
+    filter: blur(10px);
+  }
 }

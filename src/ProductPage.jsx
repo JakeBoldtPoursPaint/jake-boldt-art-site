@@ -123,12 +123,12 @@ export default function ProductPage() {
     {mediumText && <p>{mediumText}</p>}
 
     {/* UV note if present */}
-    {details?.note && (
-      <p className="text-green-400 text-xs mt-2">
-        {details.note}
-      </p>
-    )}
-  </div>
+{details?.note && (
+  <p className="uv-haze uv-pulse text-xs mt-2">
+    {details.note}
+  </p>
+)}
+</div>
 
   {/* Price / SOLD state / Add to Cart */}
   {isSold ? (
