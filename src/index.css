@@ -2,81 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ UV Haze + Purple Fringe (enhanced) */
+/* ✅ UV haze — deeper neon green + balanced aura */
 .uv-haze {
   position: relative;
   display: inline-block;
-  color: #39ff14 !important; /* neon green core */
+  color: #00ff0a !important; /* neon green */
   text-shadow:
-    0 0 8px #39ff14,
-    0 0 15px #39ff14,
-    0 0 30px #39ff14,
-    0 0 45px #39ff14,
-    0 0 10px #a300ff,   /* purple fringe core */
-    0 0 24px #a300ff,
-    0 0 50px #a300ff;
-  filter: brightness(1.45);
+    0 0 6px #00ff0a,
+    0 0 14px #00ff0a,
+    0 0 26px #00ff0a,
+    0 0 35px #00ff0a,
+    0 0 8px #9a00ff,
+    0 0 16px #9a00ff;
+  filter: saturate(1.4) brightness(1.25);
   z-index: 3;
 }
 
-/* Green inner fog breathing */
+/* Inner green glow */
 .uv-haze::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 10px;
-  background: #39ff14;
-  opacity: 0.35;
-  filter: blur(18px);
+  border-radius: 6px;
+  background: #00ff0a;
+  opacity: 0.22;
+  filter: blur(9px);
   z-index: -2;
-  animation: uvBreath 4.8s ease-in-out infinite;
+  animation: uvBreath 5s ease-in-out infinite;
 }
 
-/* Outer purple UV aura — boosted & wider */
+/* Outer purple aura */
 .uv-haze::after {
   content: "";
   position: absolute;
-  inset: -10px; /* bigger radius */
-  border-radius: 14px;
-  background: rgba(163, 0, 255, 0.75); /* vivid UV violet */
-  opacity: 0.45; /* stronger presence */
-  filter: blur(42px) saturate(2); /* wider & richer haze */
+  top: -4px;
+  left: -5px;
+  right: -5px;
+  bottom: -4px;
+  border-radius: 8px;
+  background: rgba(154, 0, 255, 0.45);
+  opacity: 0.25;
+  filter: blur(12px) saturate(1.2);
   z-index: -3;
-  animation: uvBreath 5.8s ease-in-out infinite,
-             uvSway 7.2s ease-in-out infinite;
+  animation: uvFlicker 6s ease-in-out infinite;
 }
 
-/* Breathing expansion */
+/* Breathing glow — NO big horizontal blast */
 @keyframes uvBreath {
-  0% {
-    opacity: 0.15;
-    transform: scale(1);
-    filter: blur(15px);
-  }
-  50% {
-    opacity: 0.55;
-    transform: scale(3.4);
-    filter: blur(38px);
-  }
-  100% {
-    opacity: 0.15;
-    transform: scale(1);
-    filter: blur(15px);
-  }
+  0%   { opacity: 0.18; filter: blur(9px); }
+  50%  { opacity: 0.36; filter: blur(15px); }
+  100% { opacity: 0.18; filter: blur(9px); }
 }
 
-/* Slight drift for organic feel */
-@keyframes uvSway {
-  0%   { transform: translate(0,0); }
-  50%  { transform: translate(3px, -3px); }
-  100% { transform: translate(0,0); }
+/* Soft UV shimmer */
+@keyframes uvFlicker {
+  0%   { opacity: 0.20; filter: blur(12px); }
+  50%  { opacity: 0.30; filter: blur(17px); }
+  100% { opacity: 0.20; filter: blur(12px); }
 }
 
 /* ===== Base ===== */
 body {
   @apply bg-black text-white;
 }
-
 
 
 /* === Neon color palette === */
@@ -277,56 +265,3 @@ a:hover, button:hover, .snipcart-checkout:hover {
   .spiral { font-size: 14px; filter: none; }
 }
 
-/* UV Glow override */
-@layer utilities {
-  .uv-glow {
-    animation: none !important;
-    color: #39ff14 !important;
-    text-shadow:
-      0 0 3px #39ff14,
-      0 0 6px #39ff14,
-      0 0 12px #39ff14;
-  }
-}
-/* UV haze breathing effect */
-.uv-haze {
-  position: relative;
-  display: inline-block;
-  color: #39ff14 !important;
-  text-shadow:
-    0 0 3px #39ff14,
-    0 0 8px #39ff14,
-    0 0 15px #39ff14;
-}
-
-/* Halo fog "breath" */
-.uv-haze::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 6px;
-  background: #39ff14;
-  filter: blur(14px);
-  opacity: 0.25;
-  z-index: -1;
-  animation: uvBreath 5s ease-in-out infinite;
-}
-
-/* Breathing animation */
-@keyframes uvBreath {
-  0% {
-    transform: scale(1);
-    opacity: 0.18;
-    filter: blur(10px);
-  }
-  50% {
-    transform: scale(2.6);
-    opacity: 0.32;
-    filter: blur(25px);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.18;
-    filter: blur(10px);
-  }
-}
