@@ -110,59 +110,67 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* RIGHT: info */}
-          <div>
-            {/* Title (cleaned, no dash, no "Original") */}
-            <h1 className="text-3xl md:text-4xl font-bold">
-              {displayName}
-            </h1>
+         {/* RIGHT: info */}
+<div>
+  {/* Title (cleaned, no dash, no "Original") */}
+  <h1 className="text-3xl md:text-4xl font-bold">
+    {displayName}
+  </h1>
 
-            {/* Size + Medium */}
-            <div className="text-white/70 mt-4 text-base leading-relaxed space-y-3">
-              {sizeText && <p>{sizeText}</p>}
-              {mediumText && <p>{mediumText}</p>}
-            </div>
+  {/* Size + Medium */}
+  <div className="text-white/70 mt-4 text-base leading-relaxed space-y-3">
+    {sizeText && <p>{sizeText}</p>}
+    {mediumText && <p>{mediumText}</p>}
 
-            {/* Price / SOLD state / Add to Cart */}
-            {isSold ? (
-              <div className="mt-6 space-y-2">
-                <div className="text-red-500 font-bold text-xl">
-                  SOLD
-                </div>
-                <div className="text-white/50 text-sm">
-                  No longer available
-                </div>
-              </div>
-            ) : (
-              <div className="mt-6 space-y-4">
-                {/* Price */}
-                <div>
-                  <div className="text-2xl font-semibold text-white">
-                    {formatPrice(p.price)}
-                  </div>
+    {/* UV note if present */}
+    {details?.note && (
+      <p className="text-green-400 text-xs mt-2">
+        {details.note}
+      </p>
+    )}
+  </div>
 
-                  {/* shipping policy note */}
-                  <div className="text-white/50 text-xs mt-1 leading-relaxed">
-                    U.S. shipping included. For international shipping, please contact before purchase.
-                  </div>
-                </div>
+  {/* Price / SOLD state / Add to Cart */}
+  {isSold ? (
+    <div className="mt-6 space-y-2">
+      <div className="text-red-500 font-bold text-xl">
+        SOLD
+      </div>
+      <div className="text-white/50 text-sm">
+        No longer available
+      </div>
+    </div>
+  ) : (
+    <div className="mt-6 space-y-4">
+      {/* Price */}
+      <div>
+        <div className="text-2xl font-semibold text-white">
+          {formatPrice(p.price)}
+        </div>
 
-                {/* Add to Cart button */}
-                <a
-                  href="#"
-                  className="snipcart-add-item inline-block rounded-xl bg-[#ee05fa] text-black font-semibold px-5 py-3 hover:opacity-90 transition"
-                  data-item-id={p.id}
-                  data-item-name={displayName}
-                  data-item-url={p.jsonUrl}
-                  data-item-price={p.price.toFixed(2)}
-                  data-item-image={p.videoSrc}
-                  data-item-description="Original artwork by Jake Boldt"
-                >
-                  Add to Cart — {formatPrice(p.price)}
-                </a>
-              </div>
-            )}
-          </div>
+        {/* shipping policy note */}
+        <div className="text-white/50 text-xs mt-1 leading-relaxed">
+          U.S. shipping included. For international shipping, please contact before purchase.
+        </div>
+      </div>
+
+      {/* Add to Cart button */}
+      <a
+        href="#"
+        className="snipcart-add-item inline-block rounded-xl bg-[#ee05fa] text-black font-semibold px-5 py-3 hover:opacity-90 transition"
+        data-item-id={p.id}
+        data-item-name={displayName}
+        data-item-url={p.jsonUrl}
+        data-item-price={p.price.toFixed(2)}
+        data-item-image={p.videoSrc}
+        data-item-description="Original artwork by Jake Boldt"
+      >
+        Add to Cart — {formatPrice(p.price)}
+      </a>
+    </div>
+  )}
+</div>
+
         </div>
       </div>
     </div>
