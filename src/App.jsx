@@ -12,7 +12,7 @@ const GALLERY_VIDEOS = [
 ];
 
 // =====================
-// HEADER (tall, with cart, menu item now "Jake’s Supplies")
+// HEADER (tall, with cart, menu item now "My Supplies")
 // =====================
 function HeaderMinimal() {
   const [open, setOpen] = useState(false);
@@ -57,14 +57,14 @@ function HeaderMinimal() {
       {open && (
         <div className="absolute right-4 mt-1 w-48 rounded-xl border border-white/10 bg-black/90 shadow-lg">
           <nav className="p-2 text-sm">
-            {/* Jake's Supplies (Amazon list) */}
+            {/* My Supplies (Amazon list) */}
             <a
               href="https://amzn.to/3JtYAgT"
               target="_blank"
               rel="noreferrer"
               className="block px-3 py-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10"
             >
-              Jake’s Supplies
+              My Supplies
             </a>
 
             {/* Pendulum Guide (Gumroad) */}
@@ -93,7 +93,7 @@ function HeaderMinimal() {
 
 // =====================
 // LANDING / HERO
-// Buttons: Artwork / Jake's Supplies / Pendulum Guide
+// Buttons: Artwork / My Supplies / Pendulum Guide
 // No arrows, centered text
 // =====================
 function Landing() {
@@ -133,7 +133,7 @@ function Landing() {
         <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:hidden">
           <a href="#shop" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">Artwork</a>
           <a href="https://shop.decoart.com?ref=ndc2nti" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">My Paint (20% Off)</a>
-          <a href="https://amzn.to/3JtYAgT" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">Jake’s Supplies</a>
+          <a href="https://amzn.to/3JtYAgT" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">My Supplies</a>
           <a href="https://jakeboldtpourspaint.gumroad.com/l/ieujo" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">Pendulum Guide</a>
         </div>
       </div>
@@ -165,7 +165,7 @@ function Landing() {
           rel="noreferrer"
           className="neon-btn block text-4xl font-extrabold py-20 text-center leading-tight w-80"
         >
-          Jake’s Supplies
+          My Supplies
         </a>
         <a
           href="https://jakeboldtpourspaint.gumroad.com/l/ieujo"
@@ -333,7 +333,7 @@ function GuidesandAffliates() {
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-semibold text-white">
-            Jake’s Supplies
+            My Supplies
           </h2>
           <p className="text-white/60 mt-2">
             My studio kit: paints, pouring medium, canvases, tools.
