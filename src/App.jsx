@@ -132,7 +132,20 @@ function Landing() {
         {/* MOBILE/TABLET buttons; hidden on xl+ */}
         <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:hidden">
           <a href="#shop" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">Artwork</a>
-          <a href="https://shop.decoart.com?ref=ndc2nti" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">My Paint (20% Off)</a>
+          <a
+  href="https://shop.decoart.com?ref=ndc2nti"
+  target="_blank"
+  rel="noreferrer"
+  className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight"
+>
+  <div className="flex flex-col items-center leading-tight">
+    <span>My Paint</span>
+    <span className="text-[0.65rem] font-medium opacity-90 mt-1 tracking-wide whitespace-nowrap">
+      Save 20% — Code JB25H2
+    </span>
+  </div>
+</a>
+
           <a href="https://amzn.to/3JtYAgT" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">My Supplies</a>
           <a href="https://jakeboldtpourspaint.gumroad.com/l/ieujo" target="_blank" rel="noreferrer" className="neon-btn relative block text-2xl md:text-3xl font-extrabold py-6 text-center leading-tight">Pendulum Guide</a>
         </div>
@@ -148,13 +161,19 @@ function Landing() {
           Artwork
         </a>
         <a
-          href="https://shop.decoart.com?ref=ndc2nti"
-          target="_blank"
-          rel="noreferrer"
-          className="neon-btn block text-4xl font-extrabold py-20 text-center leading-tight w-80"
-        >
-          My Paint (20% Off)
-        </a>
+  href="https://shop.decoart.com?ref=ndc2nti"
+  target="_blank"
+  rel="noreferrer"
+  className="neon-btn block text-4xl font-extrabold py-20 text-center leading-tight w-80"
+>
+  <div className="flex flex-col items-center leading-tight">
+    <span>My Paint</span>
+    <span className="text-xs font-semibold opacity-90 mt-1 tracking-wide">
+      Save 20% — Code JB25H2
+    </span>
+  </div>
+</a>
+
       </div>
 
       {/* Right stack */}
