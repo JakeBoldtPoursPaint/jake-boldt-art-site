@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jake Boldt Art</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-black">
+    <div id="root"></div>
+
+    <!-- Boot the React app -->
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- 🔁 Redirect clean product URLs (e.g. /p/pendulum-energy) to hash URLs -->
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        if (!window.location.hash && /^\/p\/.+/.test(path)) {
+          var qs = window.location.search || "";
+          window.location.replace("/#" + path + qs);
+        }
+      })();
+    </script>
+
+    <!-- ✅ Snipcart v3.7 official embed -->
+    <div id="snipcart" hidden></div>
+    <script>
+      window.SnipcartSettings = {
+        publicApiKey:
+          "MmUwOWYzNjYtN2RhYi00MWJlLTgxNzctMjhmMzBmMDhmN2FjNjM4OTcwMjY5NzQyMjU3MjIz",
+        loadStrategy: "always",
+        modalStyle: "side",
+        currency: "USD",
+      };
+    </script>
+
+    <script
+      async
+      src="https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.snipcart.com/themes/v3.7.2/default/snipcart.css"
+    />
+
+    <!-- 👇 Ensure Snipcart initializes after page load -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const checkSnipcart = setInterval(() => {
+          if (window.Snipcart && window.Snipcart.api) {
+            clearInterval(checkSnipcart);
+            console.log("✅ Snipcart loaded successfully");
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
