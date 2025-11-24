@@ -1,0 +1,22 @@
+{
+  "description": "Yeah, I Pour hoodie.",
+  "sizes": ["S", "M", "L", "XL", "2XL"],
+  "variants": [
+  {
+    "color": "Mint",
+    "front": "/images/products/hoodies/yeah-i-pour-mint-front.png",
+    "back": "/images/products/hoodies/yeah-i-pour-mint-back.png"
+  },
+  {
+    "color": "White",
+    "front": "/images/products/hoodies/yeah-i-pour-white-front.png",
+    "back": "/images/products/hoodies/yeah-i-pour-white-back.png"
+  },
+  {
+    "color": "Blue Aqua",
+    "front": "/images/products/hoodies/yeah-i-pour-blue-aqua-front.png",
+    "back": "/images/products/hoodies/yeah-i-pour-blue-aqua-back.png"
+  }
+]
+}
+

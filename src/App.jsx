@@ -217,7 +217,7 @@ function Links() {
         <p className="text-white/70 mb-10 leading-relaxed">
           I’m a visual artist known for pendulum and acrylic-pour
           paintings where gravity and motion become the brush. My work
-          blends color, physics, and rhythm — transforming raw paint
+          blends color, physics, and rhythm — transforming paint
           into movement and emotion. Through social-media videos and art
           tutorials, I share the process so anyone can explore
           creativity on their own canvas.
@@ -445,15 +445,49 @@ export const VIDEO_PRODUCTS = [
   },
 ];
 
+
 // =====================
-// SHOP SECTION (homepage gallery)
-// - strips "— Original" in UI
-// - video is clickable
-// - SOLD overlay
-// - Add to Cart for available
+// MERCH PRODUCTS (hoodies, shirts, etc.)
+// =====================
+export const MERCH_PRODUCTS = [
+  {
+    id: "abstract-hoodie-1",
+    slug: "abstract-hoodie",
+    type: "merch",
+    name: "Abstract Hoodie",
+    price: 59.00,
+    jsonUrl: "/images/products/hoodies/abstract-hoodie.json",
+    imageFront: "/images/products/hoodies/pink-front.png",
+    imageBack: "/images/products/hoodies/pink-back.png"
+  },
+  {
+    id: "yeah-i-pour-hoodie-1",
+    slug: "yeah-i-pour-hoodie",
+    type: "merch",
+    name: "Yeah, I Pour Hoodie",
+    price: 49.00,
+    jsonUrl: "/images/products/hoodies/yeah-i-pour-hoodie.json",
+    imageFront: "/images/products/hoodies/yeah-i-pour-mint-front.png",
+imageBack: "/images/products/hoodies/yeah-i-pour-mint-back.png"
+  },
+  {
+  id: "half-vibe-hoodie-1",
+  slug: "half-vibe-hoodie",
+  type: "merch",
+  name: "Pour Decisions Hoodie",
+  price: 49.00,
+  jsonUrl: "/images/products/hoodies/half-vibe-hoodie.json",
+  imageFront: "/images/products/hoodies/half-vibe-black-front.png",
+imageBack:  "/images/products/hoodies/half-vibe-black-back.png"
+}
+];
+
+
+
+// =====================
+// SHOP SECTION (Artwork gallery)
 // =====================
 function Shop() {
-  // remove " — Original" etc
   function cleanName(name) {
     if (!name) return "";
     let out = name.replace(/\s*[-–—]\s*Original\s*$/i, "");
@@ -461,7 +495,6 @@ function Shop() {
     return out.trim();
   }
 
-  // format 3500 -> $3,500
   function formatPrice(num) {
     if (num === undefined || num === null) return "";
     return `$${num.toLocaleString("en-US")}`;
@@ -480,14 +513,13 @@ function Shop() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {VIDEO_PRODUCTS.map((p) => {
             const displayName = cleanName(p.name);
-            const humanPrice = formatPrice(p.price); // "$3,500"
+            const humanPrice = formatPrice(p.price);
 
             return (
               <article
                 key={p.id}
                 className="rounded-2xl overflow-hidden border border-white/10 bg-white/5"
               >
-                {/* CLICKABLE VIDEO */}
                 <Link
                   to={`/p/${p.slug}`}
                   className="block relative aspect-[9/16] bg-black overflow-hidden"
@@ -501,6 +533,7 @@ function Shop() {
                     className="w-full h-full object-cover"
                     preload="metadata"
                   />
+
                   {p.sold && (
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
                       <span className="text-4xl font-extrabold text-red-500 drop-shadow-lg">
@@ -508,11 +541,9 @@ function Shop() {
                       </span>
                     </div>
                   )}
-                  
                 </Link>
 
                 <div className="p-4 pt-6">
-                  {/* CLICKABLE TITLE */}
                   <h3 className="text-lg font-semibold">
                     <Link
                       to={`/p/${p.slug}`}
@@ -522,14 +553,10 @@ function Shop() {
                     </Link>
                   </h3>
 
-                  {/* PRICE, NO .00 */}
                   <p className="text-white/70 mt-1">{humanPrice}</p>
 
-                  {/* SOLD / ADD TO CART */}
                   {p.sold ? (
-                    <p className="mt-4 text-red-500 font-bold">
-                      SOLD
-                    </p>
+                    <p className="mt-4 text-red-500 font-bold">SOLD</p>
                   ) : (
                     <a
                       href="#"
@@ -537,7 +564,7 @@ function Shop() {
                       data-item-id={p.id}
                       data-item-name={displayName}
                       data-item-url={p.jsonUrl}
-                      data-item-price={p.price.toFixed(2)}  // this stays toFixed(2) for Snipcart backend
+                      data-item-price={p.price.toFixed(2)}
                       data-item-image={p.videoSrc}
                       data-item-description="Original artwork by Jake Boldt"
                     >
@@ -554,6 +581,65 @@ function Shop() {
   );
 }
 
+
+// =====================
+// MERCH SECTION (your hoodies)
+// =====================
+function Merch() {
+  return (
+    <section
+      id="merch"
+      className="py-16 border-t border-white/10 bg-black"
+    >
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="font-display text-3xl md:text-4xl mb-8 animate-neon">
+          Merch
+        </h2>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          {MERCH_PRODUCTS.map((m) => (
+            <article
+              key={m.id}
+              className="rounded-2xl overflow-hidden bg-black p-4 text-center group cursor-pointer"
+            >
+              <Link to={`/p/${m.slug}`} className="block relative w-full">
+                
+                {/* STATIC SINGLE IMAGE WITH HOVER ZOOM */}
+                <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-neutral-700 bg-[#1a1a1a]">
+                  <img
+                    src={m.imageFront}
+                    alt={m.name}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              </Link>
+
+              <h3 className="text-lg font-semibold mt-4">{m.name}</h3>
+
+              <p className="text-white/70 mt-1">${m.price}</p>
+
+              <a
+                className="snipcart-add-item mt-4 inline-block bg-[#ee05fa] text-black font-semibold px-4 py-2 rounded-xl hover:opacity-90 transition"
+                data-item-id={m.id}
+                data-item-name={m.name}
+                data-item-price={m.price}
+                data-item-url={m.jsonUrl}
+                data-item-image={m.imageFront}
+              >
+                Add to Cart — ${m.price}
+              </a>
+            </article>
+          ))}
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
 // =====================
 // MAIN APP
 // =====================
@@ -563,6 +649,7 @@ export default function App() {
       <HeaderMinimal />
       <Landing />
       <Shop />
+      <Merch />
       <Links />
       <Contact />
     </div>

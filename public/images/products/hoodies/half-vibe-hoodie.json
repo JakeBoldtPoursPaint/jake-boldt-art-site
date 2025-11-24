@@ -1,0 +1,11 @@
+{
+  "description": "Pour Decisions Hoodie — cropped hoodie.",
+  "sizes": ["S", "M", "L", "XL", "2XL"],
+  "variants": [
+    {
+      "color": "Black",
+      "front": "/images/products/hoodies/half-vibe-black-front.png",
+      "back": "/images/products/hoodies/half-vibe-black-back.png"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Abstract hoodie.",
+  "variants": [
+    {
+      "color": "Hot Pink",
+      "front": "/images/products/hoodies/pink-front.png",
+      "back": "/images/products/hoodies/pink-back.png"
+    },
+    {
+      "color": "White",
+      "front": "/images/products/hoodies/white-front.png",
+      "back": "/images/products/hoodies/white-back.png"
+    }
+  ]
+}
