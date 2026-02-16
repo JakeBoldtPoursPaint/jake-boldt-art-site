@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
+
 const ACCENT = "#ee05fa";
 
 // (not used directly but leaving here for future gallery stuff)
@@ -161,7 +162,7 @@ function Landing() {
           Artwork
         </a>
         <a
-  href="https://shop.decoart.com?ref=ndc2nti"
+  href="https://www.decoart.com?sca_ref=10488569.9CTOeUs8S6"
   target="_blank"
   rel="noreferrer"
   className="neon-btn block text-4xl font-extrabold py-20 text-center leading-tight w-80"
@@ -169,7 +170,7 @@ function Landing() {
   <div className="flex flex-col items-center leading-tight">
     <span>My Paint</span>
     <span className="text-xs font-semibold opacity-90 mt-1 tracking-wide">
-      Save 20% — Code JB25H2
+      Save 15% — Code JAKE15
     </span>
   </div>
 </a>

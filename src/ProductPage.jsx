@@ -224,22 +224,6 @@ const displayName = cleanName(p.name);
 const shouldShowGlowNote =
   p.slug === "voltage-drip" || p.slug === "neon-drip";
 
-// Inject neon pulse animation once
-const neonKeyframes = `
-@keyframes neonPulse {
-  0% { opacity: 0.6; text-shadow: 0 0 4px #39ff14; }
-  50% { opacity: 1; text-shadow: 0 0 8px #39ff14, 0 0 14px #39ff14; }
-  100% { opacity: 0.6; text-shadow: 0 0 4px #39ff14; }
-}
-`;
-
-if (!document.getElementById("neonPulseStyles")) {
-  const style = document.createElement("style");
-  style.id = "neonPulseStyles";
-  style.innerHTML = neonKeyframes;
-  document.head.appendChild(style);
-}
-
 return (
   <div className="min-h-screen bg-black text-white pt-14">
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -276,16 +260,29 @@ return (
         <div>
           <h1 className="text-3xl md:text-4xl font-bold">{displayName}</h1>
 
-          {/* 🔥 Neon UV glow note */}
+          {/* 🔥 Forced neon-green UV note (entire line stays green) */}
           {shouldShowGlowNote && details?.note && (
             <p
-              className="mt-2 text-[#39ff14] text-sm tracking-wide font-semibold"
+              className="mt-2 text-sm tracking-wide font-semibold"
               style={{
+                color: "#39ff14",
                 animation: "neonPulse 2.4s ease-in-out infinite",
-                textShadow: "0 0 6px #39ff14"
+                textShadow: "0 0 6px #39ff14",
               }}
             >
-              {details.note}
+              <span
+                style={{
+                  color: "#39ff14",
+                  textShadow: "0 0 6px #39ff14",
+                }}
+                // This forces any <a> inside the note to be neon-green too
+                dangerouslySetInnerHTML={{
+                  __html: details.note.replace(
+                    /<a /g,
+                    '<a style="color:#39ff14; text-shadow:0 0 6px #39ff14;" '
+                  )
+                }}
+              />
             </p>
           )}
 
@@ -329,5 +326,6 @@ return (
     </div>
   </div>
 );
+
 
 }
